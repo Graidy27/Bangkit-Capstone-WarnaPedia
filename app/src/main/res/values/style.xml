@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="RectangleLight">
+        <item name="android:background">@color/teal_200</item>
+        <item name="android:backgroundTint">@color/teal_200</item>
+    </style>
+    <style name="RectangleDark">
+        <item name="android:background">@color/teal_700</item>
+        <item name="android:backgroundTint">@color/teal_700</item>
+    </style>
+</resources>
