@@ -2,7 +2,7 @@
 This is repository aplication of WarnaPedia mobile APP
 
 # Our Application Design
-[![figma](https://img.shields.io/badge/Figma-Our%20Design-success)](https://www.figma.com/file/XX8rOGgty7gRRNtktFIL9U/YourNey?node-id=0%3A1)
+[![figma](https://img.shields.io/badge/Figma-Our%20Design-success)]([https://www.figma.com/file/XX8rOGgty7gRRNtktFIL9U/YourNey?node-id=0%3A1](https://www.figma.com/file/dBuYG0fcS7lF9sxjDAhGE5/Product-Based-Capstone-Design))
 
 # Our Member
 |             Member            | Student ID  |         Path          |
