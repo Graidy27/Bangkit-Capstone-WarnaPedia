@@ -23,5 +23,9 @@ class DetailAdapter(
 
     override fun getItemCount(): Int = listColor.size
 
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
+
     class ViewHolder(var binding: ItemRowColorBinding) : RecyclerView.ViewHolder(binding.root)
 }

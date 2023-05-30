@@ -79,6 +79,9 @@ class FavoriteAdapter(
 
     override fun getItemCount(): Int = listColorPalette.size
 
+    override fun getItemViewType(position: Int): Int {
+        return position
+    }
     class ViewHolder(var binding: ItemRowColorPaletteBinding) : RecyclerView.ViewHolder(binding.root)
 
     private fun setSingleSelection(adapterPosition: Int){

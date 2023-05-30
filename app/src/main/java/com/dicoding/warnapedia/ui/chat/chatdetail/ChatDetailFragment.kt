@@ -36,7 +36,7 @@ class ChatDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentChatDetailBinding.inflate(inflater, container, false)
-        adapter = ChatDetailAdapter(listOf())
+        adapter = ChatDetailAdapter(listOf(), requireActivity())
         binding.rvChat.adapter = adapter
         return binding.root
     }
@@ -55,14 +55,20 @@ class ChatDetailFragment : Fragment() {
 
         chatDetailViewModel.listChat.observe(viewLifecycleOwner) { listChat ->
             adapter.updateData(listChat)
-            adapter.notifyDataSetChanged()
         }
 
-        chatDetailViewModel.loadChat(ExampleChatData.listData)
+        chatDetailViewModel.loadChat(arrayListOf(ExampleChatData.listData[0]))
 
         val layoutManager = LinearLayoutManager(activity)
         binding.rvChat.layoutManager = layoutManager
         binding.rvChat.setHasFixedSize(true)
+
+        binding.btnSend.setOnClickListener {
+            val text = binding.textMessage.text.toString()
+            chatDetailViewModel.addChat(text)
+            binding.textMessage.setText("")
+            chatDetailViewModel.getResponse(text)
+        }
     }
 
     override fun onDestroyView() {

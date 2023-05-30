@@ -28,7 +28,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_row_chat"/>
+        tools:listitem="@layout/item_row_chat"
+        android:paddingBottom="10dp"/>
 
     <LinearLayout
         android:id="@+id/layout_messageArea"
@@ -43,7 +44,7 @@
         android:padding="10dp">
 
         <EditText
-            android:id="@+id/txtMessage"
+            android:id="@+id/text_message"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

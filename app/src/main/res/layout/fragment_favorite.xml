@@ -168,7 +168,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/button_nav"
+                android:background="@drawable/selector_button_nav"
                 android:contentDescription="@string/example_nav_button_left"
                 android:src="@drawable/baseline_keyboard_arrow_left_24"
                 android:stateListAnimator="@animator/fade_state_list_animator_alpha"
@@ -180,7 +180,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginRight="10dp"
-                android:background="@drawable/button_nav"
+                android:background="@drawable/selector_button_nav"
                 android:contentDescription="@string/example_nav_button_right"
                 android:src="@drawable/baseline_keyboard_arrow_right_24"
                 android:stateListAnimator="@animator/fade_state_list_animator_alpha"
@@ -199,5 +199,6 @@
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/l_example_design_container"/>
+        app:layout_constraintTop_toBottomOf="@+id/l_example_design_container"
+        android:paddingBottom="10dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

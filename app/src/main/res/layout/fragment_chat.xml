@@ -9,12 +9,14 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/app_logo"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:src="@mipmap/app_text_logo_foreground"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="80dp"
+        android:src="@drawable/ic_launcher_warnapedia_textlogo_vector"
+        app:layout_constraintBottom_toTopOf="@+id/opening_chat"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.7" />
 
     <TextView
         android:id="@+id/opening_chat"
