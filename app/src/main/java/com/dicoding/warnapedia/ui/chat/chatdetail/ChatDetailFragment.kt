@@ -6,17 +6,11 @@ import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.warnapedia.R
-import com.dicoding.warnapedia.data.Chat
-import com.dicoding.warnapedia.data.ExampleChatData
 import com.dicoding.warnapedia.databinding.FragmentChatDetailBinding
 import com.dicoding.warnapedia.helper.ViewModelFactory
-import com.dicoding.warnapedia.ui.recomendation.RecomendationAdapter
-import com.dicoding.warnapedia.ui.recomendation.RecomendationFragmentArgs
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ChatDetailFragment : Fragment() {
@@ -82,7 +76,7 @@ class ChatDetailFragment : Fragment() {
         return when (item.itemId) {
             R.id.delete -> {
                 val dialogBuilder = AlertDialog.Builder(requireActivity(), R.style.CustomAlertDialog)
-                dialogBuilder.setMessage(resources.getString(R.string.delete_confirmation))
+                dialogBuilder.setMessage(resources.getString(R.string.delete_chat_confirmation))
                     .setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
                         chatDetailViewModel.deleteChat()
                         dialog.dismiss()
@@ -92,7 +86,6 @@ class ChatDetailFragment : Fragment() {
                     })
                     .create()
                     .show()
-
                 true
             }
             else -> super.onOptionsItemSelected(item)

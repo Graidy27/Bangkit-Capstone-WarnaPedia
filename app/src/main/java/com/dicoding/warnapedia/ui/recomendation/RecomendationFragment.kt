@@ -10,7 +10,9 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
@@ -54,13 +56,6 @@ class RecomendationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.bLeftExampleLayout.setOnClickListener{
-            Log.d("BUTTON LEFT", "test")
-        }
-        binding.bRightExampleLayout.setOnClickListener{
-            Log.d("BUTTON RIGHT", "test")
-        }
-
         val typedValue = TypedValue()
         if (requireContext().theme.resolveAttribute(android.R.attr.actionBarSize, typedValue, true)) {
             val actionBarHeight = TypedValue.complexToDimensionPixelSize(typedValue.data, resources.displayMetrics)
@@ -71,11 +66,20 @@ class RecomendationFragment : Fragment() {
             binding.rvColorPalette.layoutParams = layoutParams
         }
 
+        if(activity is AppCompatActivity){
+            val mainActivity = (activity as? AppCompatActivity)
+            mainActivity?.setSupportActionBar(binding.toolbar)
+            mainActivity?.supportActionBar?.title = "Palette Recomendation"
+            mainActivity?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            val navView = mainActivity?.findViewById<BottomNavigationView>(R.id.nav_view)
+            navView?.visibility = View.GONE
+        }
+
         recomendationViewModel.listColorPalette.observe(viewLifecycleOwner) { listColorPalette ->
             adapter.updateData(listColorPalette)
             adapter.notifyDataSetChanged()
             if (listColorPalette.isNotEmpty()){
-                setExampleDesignColor(listColorPalette[0])
+                recomendationViewModel.setCurrentColorPalette(listColorPalette[0])
             }
         }
 
@@ -88,7 +92,7 @@ class RecomendationFragment : Fragment() {
 
         adapter.setOnItemClickCallback(object : RecomendationAdapter.OnItemClickCallback {
             override fun onItemClick(data: ColorPalette) {
-                setExampleDesignColor(data)
+                recomendationViewModel.setCurrentColorPalette(data)
             }
         })
 
@@ -116,35 +120,74 @@ class RecomendationFragment : Fragment() {
             }
         })
 
-        if(activity is AppCompatActivity){
-            val mainActivity = (activity as? AppCompatActivity)
-            mainActivity?.setSupportActionBar(binding.toolbar)
-            mainActivity?.supportActionBar?.title = "Palette Recomendation"
-            mainActivity?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            val navView = mainActivity?.findViewById<BottomNavigationView>(R.id.nav_view)
-            navView?.visibility = View.GONE
+        recomendationViewModel.setCurrentDesign(1)
+
+        recomendationViewModel.currentDesign.observe(viewLifecycleOwner)  { currentDesign ->
+            when(currentDesign) {
+                1 -> { loadWebDesign1() }
+                2 -> { loadWebDesign2() }
+            }
+            setExampleDesignColor(recomendationViewModel.getCurrentColorPalette())
+        }
+
+        recomendationViewModel.currentColorPalette.observe(viewLifecycleOwner) { colorPalette ->
+            setExampleDesignColor(colorPalette)
+        }
+
+        binding.bLeftExampleLayout.setOnClickListener{
+            when(recomendationViewModel.getCurrentDesign()) {
+                1 -> { recomendationViewModel.setCurrentDesign(2) }
+                2 -> { recomendationViewModel.setCurrentDesign(1) }
+            }
+        }
+
+        binding.bRightExampleLayout.setOnClickListener{
+            when(recomendationViewModel.getCurrentDesign()) {
+                1 -> { recomendationViewModel.setCurrentDesign(2) }
+                2 -> { recomendationViewModel.setCurrentDesign(1) }
+            }
         }
     }
 
-    fun setExampleDesignColor(colorStr: ColorPalette){
-        val defaultColor = ContextCompat.getColor(requireContext(), R.color.F5F5F5)
-        ViewCompat.setBackgroundTintList(binding.comp11, ColorStateList.valueOf(toColor(colorStr.colorOne, defaultColor)))
-        ViewCompat.setBackgroundTintList(binding.comp12, ColorStateList.valueOf(toColor(colorStr.colorOne, defaultColor)))
-        ViewCompat.setBackgroundTintList(binding.comp13, ColorStateList.valueOf(toColor(colorStr.colorOne, defaultColor)))
-        ViewCompat.setBackgroundTintList(binding.comp14, ColorStateList.valueOf(toColor(colorStr.colorOne, defaultColor)))
-        binding.comp15.setTextColor(toColor(colorStr.colorOne, defaultColor))
-        ViewCompat.setBackgroundTintList(binding.comp16, ColorStateList.valueOf(toColor(colorStr.colorOne, defaultColor)))
-        ViewCompat.setBackgroundTintList(binding.comp17, ColorStateList.valueOf(toColor(colorStr.colorOne, defaultColor)))
-        binding.comp18.setTextColor(toColor(colorStr.colorOne, defaultColor))
-        binding.comp2.setTextColor(toColor(colorStr.colorTwo, defaultColor))
-        ViewCompat.setBackgroundTintList(binding.comp3, ColorStateList.valueOf(toColor(colorStr.colorThree, defaultColor)))
-        binding.lExampleDesign.setBackgroundColor(toColor(colorStr.colorThree, defaultColor))
-        ViewCompat.setBackgroundTintList(binding.comp4, ColorStateList.valueOf(toColor(colorStr.colorFour, defaultColor)))
+    private fun loadWebDesign1() {
+        binding.frameLayoutExampleDesign.removeAllViews()
+        layoutInflater.inflate(R.layout.example_web_design_1, binding.frameLayoutExampleDesign)
+    }
+
+    private fun loadWebDesign2() {
+        binding.frameLayoutExampleDesign.removeAllViews()
+        layoutInflater.inflate(R.layout.example_web_design_2, binding.frameLayoutExampleDesign)
     }
 
     fun toColor(color: String, defColor: Int) : Int{
         if (color.isNullOrEmpty()) return defColor
         return Color.parseColor(color)
+    }
+
+    fun setExampleDesignColor(colorStr: ColorPalette){
+        when(recomendationViewModel.getCurrentDesign()){
+            1 -> setExampleDesign1Color(colorStr)
+            2 -> setExampleDesign2Color(colorStr)
+        }
+    }
+    fun setExampleDesign1Color(colorStr: ColorPalette){
+        val defaultColor = ContextCompat.getColor(requireContext(), R.color.F5F5F5)
+        ViewCompat.setBackgroundTintList(binding.frameLayoutExampleDesign.findViewById(R.id.comp1_1), ColorStateList.valueOf(toColor(colorStr.colorOne, defaultColor)))
+        ViewCompat.setBackgroundTintList(binding.frameLayoutExampleDesign.findViewById(R.id.comp1_2), ColorStateList.valueOf(toColor(colorStr.colorOne, defaultColor)))
+        ViewCompat.setBackgroundTintList(binding.frameLayoutExampleDesign.findViewById(R.id.comp1_3), ColorStateList.valueOf(toColor(colorStr.colorOne, defaultColor)))
+        ViewCompat.setBackgroundTintList(binding.frameLayoutExampleDesign.findViewById(R.id.comp1_4), ColorStateList.valueOf(toColor(colorStr.colorOne, defaultColor)))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp1_5).setTextColor(toColor(colorStr.colorOne, defaultColor))
+        ViewCompat.setBackgroundTintList(binding.frameLayoutExampleDesign.findViewById(R.id.comp1_6), ColorStateList.valueOf(toColor(colorStr.colorOne, defaultColor)))
+        ViewCompat.setBackgroundTintList(binding.frameLayoutExampleDesign.findViewById(R.id.comp1_7), ColorStateList.valueOf(toColor(colorStr.colorOne, defaultColor)))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp1_8).setTextColor(toColor(colorStr.colorOne, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp2).setTextColor(toColor(colorStr.colorTwo, defaultColor))
+        ViewCompat.setBackgroundTintList(binding.frameLayoutExampleDesign.findViewById(R.id.comp3), ColorStateList.valueOf(toColor(colorStr.colorThree, defaultColor)))
+        binding.frameLayoutExampleDesign.findViewById<ConstraintLayout>(R.id.l_example_design).setBackgroundColor(toColor(colorStr.colorThree, defaultColor))
+        ViewCompat.setBackgroundTintList(binding.frameLayoutExampleDesign.findViewById(R.id.comp4), ColorStateList.valueOf(toColor(colorStr.colorFour, defaultColor)))
+    }
+
+    fun setExampleDesign2Color(colorStr: ColorPalette){
+
     }
 
     val Int.dp: Int

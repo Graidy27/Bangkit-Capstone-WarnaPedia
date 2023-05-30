@@ -13,7 +13,7 @@
     <string name="example_palette">Palette One</string>
     <string name="example_nav_button_right">Example Design Nav Button Right</string>
     <string name="example_nav_button_left">Example Design Nav Button Left</string>
-    <string name="delete_confirmation">This action will delete all conversation history. Do you want to proceed?</string>
+    <string name="delete_chat_confirmation">This action will delete all conversation history. Do you want to proceed?</string>
     <string name="selected">selected</string>
     <string name="the">The</string>
     <string name="login">Login</string>
