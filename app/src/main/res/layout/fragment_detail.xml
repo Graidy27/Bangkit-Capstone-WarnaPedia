@@ -217,6 +217,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/l_example_design_container"
         app:layout_constraintVertical_bias="0.277"
-        tools:listitem="@layout/item_row_color"
-        android:paddingBottom="10dp"/>
+        tools:listitem="@layout/item_row_color" />
 </androidx.constraintlayout.widget.ConstraintLayout>

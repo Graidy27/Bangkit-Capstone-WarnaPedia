@@ -7,7 +7,7 @@
     android:layout_gravity="center"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
-    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
     card_view:cardCornerRadius="10dp"
     android:backgroundTint="@color/teal_700">
     <androidx.appcompat.widget.LinearLayoutCompat

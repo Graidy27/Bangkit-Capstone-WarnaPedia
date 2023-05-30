@@ -1,5 +1,6 @@
 package com.dicoding.warnapedia.ui.favorite
 
+import android.content.res.Resources
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View.GONE
@@ -13,6 +14,7 @@ import com.dicoding.warnapedia.data.ColorPalette
 import com.dicoding.warnapedia.databinding.ItemRowColorPaletteBinding
 import com.dicoding.warnapedia.repository.FavoriteColorPaletteRepository
 import com.google.android.material.button.MaterialButton
+import kotlin.math.roundToInt
 
 class FavoriteAdapter(
     private var listColorPalette: List<ColorPalette>, private val context: FragmentActivity
@@ -42,30 +44,30 @@ class FavoriteAdapter(
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+        if (position == 0){
+            val itemLayoutParams = viewHolder.itemView.layoutParams as ViewGroup.MarginLayoutParams
+            itemLayoutParams.topMargin = 10.dp
+            viewHolder.itemView.layoutParams = itemLayoutParams
+        }
         val (color_palette_name, color_one, color_two, color_three, color_four) = listColorPalette[position]
-
         viewHolder.binding.tvColorPaletteName.text = color_palette_name
         viewHolder.binding.clBackgroundLayout.setBackgroundColor(Color.parseColor(color_one))
         viewHolder.binding.colorTwo.setBackgroundColor(Color.parseColor(color_two))
         viewHolder.binding.colorThree.setBackgroundColor(Color.parseColor(color_three))
         viewHolder.binding.colorFour.setBackgroundColor(Color.parseColor(color_four))
-
         if (selectedItemPosition == position){
             viewHolder.binding.llSelectedColorPalette.visibility = VISIBLE
         }else{
             viewHolder.binding.llSelectedColorPalette.visibility = GONE
         }
-
         viewHolder.binding.mbFavoriteButton.visibility = GONE
         val layoutParams = viewHolder.binding.mbViewDetailButton.layoutParams as ViewGroup.MarginLayoutParams
         layoutParams.setMargins(0, 0, 0, 0)
         viewHolder.binding.mbViewDetailButton.layoutParams = layoutParams
-
         viewHolder.itemView.setOnClickListener {
             onItemClickCallback.onItemClick(listColorPalette[viewHolder.adapterPosition])
             setSingleSelection(viewHolder.adapterPosition)
         }
-
         viewHolder.binding.mbViewDetailButton.setOnClickListener {
             val toDetailFragment = FavoriteFragmentDirections.actionNavigationDashboardToDetailFragment(
                 arrayOf(
@@ -93,6 +95,9 @@ class FavoriteAdapter(
 
         notifyItemChanged(selectedItemPosition)
     }
+
+    val Int.dp: Int
+        get() = (this * Resources.getSystem().displayMetrics.density).roundToInt()
 
     fun updateData(newData: List<ColorPalette>) {
         listColorPalette = newData
