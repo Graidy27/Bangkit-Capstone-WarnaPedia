@@ -18,6 +18,7 @@
     <string name="example_nav_button_left">Example Design Nav Button Left</string>
     <string name="opening_chat">What do you want to create today?</string>
     <string name="type_here">Type Here...</string>
+    <string name="send_button">Send Button</string>
     <string name="long_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies mi vel scelerisque ullamcorper. Integer nec efficitur orci, vel commodo massa. Nullam eget congue ante. Nulla nunc nisl, dapibus a semper eu, rutrum ut purus. Morbi semper, massa eu mattis fringilla, orci eros imperdiet sem, in ultrices diam purus feugiat ex. Etiam eget rhoncus mi. Vivamus vitae turpis condimentum, commodo ligula vitae, rhoncus justo. Fusce eu felis ante.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

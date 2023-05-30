@@ -190,7 +190,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/b_left_example_layout"
                 app:layout_constraintTop_toTopOf="parent"
-                android:stateListAnimator="@animator/fade_state_list_animator"/>
+                android:stateListAnimator="@animator/fade_state_list_animator_alpha"/>
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/b_left_example_layout"
                 android:layout_width="40dp"
@@ -199,7 +199,7 @@
                 android:background="@drawable/button_nav"
                 android:contentDescription="@string/example_nav_button_right"
                 android:src="@drawable/baseline_keyboard_arrow_right_24"
-                android:stateListAnimator="@animator/fade_state_list_animator"
+                android:stateListAnimator="@animator/fade_state_list_animator_alpha"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>

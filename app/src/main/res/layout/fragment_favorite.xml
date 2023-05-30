@@ -171,7 +171,7 @@
                 android:background="@drawable/button_nav"
                 android:contentDescription="@string/example_nav_button_left"
                 android:src="@drawable/baseline_keyboard_arrow_left_24"
-                android:stateListAnimator="@animator/fade_state_list_animator"
+                android:stateListAnimator="@animator/fade_state_list_animator_alpha"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/b_left_example_layout"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -183,7 +183,7 @@
                 android:background="@drawable/button_nav"
                 android:contentDescription="@string/example_nav_button_right"
                 android:src="@drawable/baseline_keyboard_arrow_right_24"
-                android:stateListAnimator="@animator/fade_state_list_animator"
+                android:stateListAnimator="@animator/fade_state_list_animator_alpha"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
