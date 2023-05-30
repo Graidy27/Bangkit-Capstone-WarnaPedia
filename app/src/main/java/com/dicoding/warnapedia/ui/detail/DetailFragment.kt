@@ -4,14 +4,14 @@ import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.data.ColorPalette
@@ -42,6 +42,7 @@ class DetailFragment : Fragment() {
 
         val colors = DetailFragmentArgs.fromBundle(arguments as Bundle).colors
         val color_palette_name = DetailFragmentArgs.fromBundle(arguments as Bundle).colorPaletteName
+        val from_page = DetailFragmentArgs.fromBundle(arguments as Bundle).fromPage
 
         setExampleDesignColor(colors)
 
@@ -60,6 +61,31 @@ class DetailFragment : Fragment() {
 
         val adapter = DetailAdapter(colors)
         binding.rvColors.adapter = adapter
+
+        if (from_page == resources.getString(R.string.FAVORITE)){
+            setHasOptionsMenu(true)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater){
+        inflater.inflate(R.menu.detail_menu, menu)
+        val favorite = menu.findItem(R.id.favorite)
+        favorite.isChecked = true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.favorite -> {
+                if (item.isChecked == true){
+                    item.setIcon(ContextCompat.getDrawable(requireContext(), R.drawable.baseline_favorite_border_24))
+                    item.isChecked = false
+                }else {
+                    item.setIcon(ContextCompat.getDrawable(requireContext(), R.drawable.baseline_favorite_24))
+                    item.isChecked = true
+                }
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
     fun setExampleDesignColor(colorStr: Array<String>){

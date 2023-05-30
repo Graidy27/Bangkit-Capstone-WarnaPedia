@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName
 
 data class Chat(
     @field:SerializedName("type")
-    var colorPaletteName: Int = 0,
+    var type: Int = 0,
 
-    @field:SerializedName("chat")
-    var colorOne: String = "",
+    @field:SerializedName("message")
+    var message: String = "",
 
     @field:SerializedName("color_palette")
-    var colorPalette: String = "",
+    var colorPalette: List<ColorPalette>? = null,
 )

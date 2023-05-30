@@ -33,6 +33,10 @@
         <action
             android:id="@+id/action_navigation_recomendation_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <argument
+            android:name="color_palette"
+            app:argType="com.dicoding.warnapedia.data.ColorPalette[]"
+            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
@@ -46,10 +50,17 @@
         <argument
             android:name="colors"
             app:argType="string[]" />
+        <argument
+            android:name="from_page"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/chatDetailFragment"
         android:name="com.dicoding.warnapedia.ui.chat.chatdetail.ChatDetailFragment"
         android:label="fragment_chat_detail"
-        tools:layout="@layout/fragment_chat_detail" />
+        tools:layout="@layout/fragment_chat_detail" >
+        <action
+            android:id="@+id/action_chatDetailFragment_to_navigation_recomendation"
+            app:destination="@id/navigation_recomendation" />
+    </fragment>
 </navigation>

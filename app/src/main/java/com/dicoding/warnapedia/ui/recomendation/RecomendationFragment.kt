@@ -22,6 +22,7 @@ import com.dicoding.warnapedia.data.ExampleColorPaletteData
 import com.dicoding.warnapedia.data.localdatabase.FavoriteColorPalette
 import com.dicoding.warnapedia.databinding.FragmentRecomendationBinding
 import com.dicoding.warnapedia.helper.ViewModelFactory
+import com.dicoding.warnapedia.ui.detail.DetailFragmentArgs
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 import kotlin.math.roundToInt
@@ -78,7 +79,8 @@ class RecomendationFragment : Fragment() {
             }
         }
 
-        recomendationViewModel.loadColorPalette(ExampleColorPaletteData.listData)
+        val color_palette = RecomendationFragmentArgs.fromBundle(arguments as Bundle)?.colorPalette
+        recomendationViewModel.loadColorPalette(ArrayList(color_palette?.toList()))
 
         val layoutManager = LinearLayoutManager(activity)
         binding.rvColorPalette.layoutManager = layoutManager

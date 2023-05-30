@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.data.ColorPalette
 import com.dicoding.warnapedia.databinding.ItemRowColorPaletteBinding
 import com.dicoding.warnapedia.ui.recomendation.RecomendationFragmentDirections
@@ -63,7 +64,8 @@ class RecomendationAdapter(
         viewHolder.binding.mbViewDetailButton.setOnClickListener {
             val toDetailFragment = RecomendationFragmentDirections.actionNavigationRecomendationToDetailFragment(
                 arrayOf(
-                    color_one, color_two, color_three, color_four)
+                    color_one, color_two, color_three, color_four),
+                context.resources.getString(R.string.RECOMENDATION)
             )
             toDetailFragment.colorPaletteName = color_palette_name
             viewHolder.itemView.findNavController().navigate(toDetailFragment)
