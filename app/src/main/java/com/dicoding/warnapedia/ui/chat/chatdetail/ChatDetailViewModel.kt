@@ -28,7 +28,7 @@ class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
 
     fun addChat(str: String){
         val currentList = _listChat.value?.toMutableList() ?: mutableListOf()
-        insertChat(formatedUserChat(str))
+        insertChat(formatedUserChat(str), false)
         currentList.add(formatedUserChat(str))
         _listChat.value = currentList
     }
@@ -36,7 +36,7 @@ class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
     fun getResponse(str: String){
         val currentList = _listChat.value?.toMutableList() ?: mutableListOf()
         currentList.add(ExampleChatData.listData[example_index])
-        insertChat(ExampleChatData.listData[example_index])
+        insertChat(ExampleChatData.listData[example_index], false)
         if (example_index == 4){
             example_index = 1
         }else {
@@ -45,8 +45,12 @@ class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
         _listChat.value = currentList
     }
 
-    fun insertChat(chat: Chat) {
-        mChatsRepository.insert(Chats(_listChat.value?.size ?: 0, chat.type, chat.message, chat.colorPalette))
+    fun insertChat(chat: Chat, isFirst: Boolean) {
+        if(isFirst){
+            mChatsRepository.insert(Chats(0, chat.type, chat.message, chat.colorPalette))
+        }else{
+            mChatsRepository.insert(Chats(_listChat.value?.size ?: 0, chat.type, chat.message, chat.colorPalette))
+        }
     }
 
     fun deleteChat() {
@@ -57,7 +61,7 @@ class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
         mChatsRepository.getChat().observe(viewLifecycleOwner){ chatList ->
             if (chatList.isNullOrEmpty()){
                 val chat = Chat(1, context.resources.getString(R.string.default_first_chat), null)
-                insertChat(chat)
+                insertChat(chat, true)
                 _listChat.value = listOf(chat)
             }else{
                 val formattedObjectList = chatList.map { chat ->

@@ -1,11 +1,12 @@
 package com.dicoding.warnapedia.ui.chat.chatdetail
 
+import android.content.DialogInterface
 import android.os.Bundle
+import android.view.*
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,7 +44,7 @@ class ChatDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setHasOptionsMenu(true)
         val layoutManager = LinearLayoutManager(activity)
         binding.rvChat.layoutManager = layoutManager
         binding.rvChat.setHasFixedSize(true)
@@ -65,9 +66,36 @@ class ChatDetailFragment : Fragment() {
 
         binding.btnSend.setOnClickListener {
             val text = binding.textMessage.text.toString()
-            chatDetailViewModel.addChat(text)
-            binding.textMessage.setText("")
-            chatDetailViewModel.getResponse(text)
+            if (!text.isNullOrEmpty()){
+                chatDetailViewModel.addChat(text)
+                binding.textMessage.setText("")
+                chatDetailViewModel.getResponse(text)
+                binding.rvChat.scrollToPosition(adapter.itemCount - 1)
+            }
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater){
+        inflater.inflate(R.menu.chat_detail_menu, menu)
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.delete -> {
+                val dialogBuilder = AlertDialog.Builder(requireActivity(), R.style.CustomAlertDialog)
+                dialogBuilder.setMessage(resources.getString(R.string.delete_confirmation))
+                    .setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
+                        chatDetailViewModel.deleteChat()
+                        dialog.dismiss()
+                    })
+                    .setNegativeButton("No", DialogInterface.OnClickListener { dialog, which ->
+                        dialog.dismiss()
+                    })
+                    .create()
+                    .show()
+
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
         }
     }
 

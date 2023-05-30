@@ -7,11 +7,13 @@
     <string name="title_settings">Settings</string>
     <string name="title_chat">Chat</string>
     <string name="title_favorite">Favorite</string>
+    <string name="title_delete">Delete</string>
     <string name="example_color">#FFBB86FC</string>
     <string name="example_design">Example Design</string>
     <string name="example_palette">Palette One</string>
     <string name="example_nav_button_right">Example Design Nav Button Right</string>
     <string name="example_nav_button_left">Example Design Nav Button Left</string>
+    <string name="delete_confirmation">This action will delete all conversation history. Do you want to proceed?</string>
     <string name="selected">selected</string>
     <string name="the">The</string>
     <string name="login">Login</string>
