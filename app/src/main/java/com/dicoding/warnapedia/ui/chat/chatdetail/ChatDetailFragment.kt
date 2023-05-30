@@ -44,6 +44,10 @@ class ChatDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val layoutManager = LinearLayoutManager(activity)
+        binding.rvChat.layoutManager = layoutManager
+        binding.rvChat.setHasFixedSize(true)
+
         if(activity is AppCompatActivity){
             val mainActivity = (activity as? AppCompatActivity)
             mainActivity?.setSupportActionBar(binding.toolbar)
@@ -57,11 +61,7 @@ class ChatDetailFragment : Fragment() {
             adapter.updateData(listChat)
         }
 
-        chatDetailViewModel.loadChat(arrayListOf(ExampleChatData.listData[0]))
-
-        val layoutManager = LinearLayoutManager(activity)
-        binding.rvChat.layoutManager = layoutManager
-        binding.rvChat.setHasFixedSize(true)
+        chatDetailViewModel.loadChat(viewLifecycleOwner, requireActivity())
 
         binding.btnSend.setOnClickListener {
             val text = binding.textMessage.text.toString()

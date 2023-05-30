@@ -1,29 +1,30 @@
 <resources>
     <string name="app_name">WarnaPedia</string>
+    <string name="title">Title</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="selected">selected</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_chat">Chat</string>
+    <string name="title_favorite">Favorite</string>
     <string name="example_color">#FFBB86FC</string>
     <string name="example_design">Example Design</string>
     <string name="example_palette">Palette One</string>
-    <string name="title_chat">Chat</string>
-    <string name="the">The</string>
-    <string name="title">Title</string>
-    <string name="login">Login</string>
-    <string name="title_favorite">Favorite</string>
-    <string name="favorite">favorite</string>
-    <string name="FAVORITE">FAVORITE</string>
-    <string name="RECOMENDATION">RECOMENDATION</string>
-    <string name="view">view</string>
     <string name="example_nav_button_right">Example Design Nav Button Right</string>
     <string name="example_nav_button_left">Example Design Nav Button Left</string>
+    <string name="selected">selected</string>
+    <string name="the">The</string>
+    <string name="login">Login</string>
+    <string name="favorite">favorite</string>
+    <string name="view">view</string>
     <string name="opening_chat">What do you want to create today?</string>
     <string name="type_here">Type Here...</string>
     <string name="send_button">Send Button</string>
     <string name="go_to_design">Go To Design</string>
     <string name="long_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies mi vel scelerisque ullamcorper. Integer nec efficitur orci, vel commodo massa. Nullam eget congue ante. Nulla nunc nisl, dapibus a semper eu, rutrum ut purus. Morbi semper, massa eu mattis fringilla, orci eros imperdiet sem, in ultrices diam purus feugiat ex. Etiam eget rhoncus mi. Vivamus vitae turpis condimentum, commodo ligula vitae, rhoncus justo. Fusce eu felis ante.</string>
+    <string name="default_first_chat">What do you want to create today?</string>
+    <string name="FAVORITE">FAVORITE</string>
+    <string name="RECOMENDATION">RECOMENDATION</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
 </resources>

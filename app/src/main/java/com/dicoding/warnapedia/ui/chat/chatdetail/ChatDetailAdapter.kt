@@ -24,7 +24,6 @@ class ChatDetailAdapter(
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
         val (type, message, colorPalette) = listChat[position]
         viewHolder.binding.tvMessage.text = message
-        Log.d("CHAT", type.toString())
         if(type == 0) {
             viewHolder.binding.userIcon.setImageResource(R.drawable.baseline_user_icon)
             viewHolder.binding.layoutCard.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
@@ -53,8 +52,7 @@ class ChatDetailAdapter(
 
     fun updateData(newData: List<Chat>) {
         listChat = newData
-//        notifyDataSetChanged()
-        notifyItemInserted(listChat.size - 1)
+        notifyDataSetChanged()
     }
 
     fun getDataList(): List<Chat> {

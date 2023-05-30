@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_chat">
 
     <fragment
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_chat"
         android:name="com.dicoding.warnapedia.ui.chat.ChatFragment"
         android:label="@string/title_chat"
         tools:layout="@layout/fragment_chat" >
@@ -16,7 +16,7 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_favorite"
         android:name="com.dicoding.warnapedia.ui.favorite.FavoriteFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_favorite" >
@@ -63,4 +63,9 @@
             android:id="@+id/action_chatDetailFragment_to_navigation_recomendation"
             app:destination="@id/navigation_recomendation" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.dicoding.warnapedia.ui.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navigation_favorite"
+        android:icon="@drawable/baseline_favorite_24"
+        android:title="@string/title_favorite" />
+
+    <item
+        android:id="@+id/navigation_chat"
         android:icon="@drawable/baseline_chat_24"
         android:title="@string/title_chat" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/baseline_favorite_24"
-        android:title="@string/title_favorite" />
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/baseline_settings_24"
+        android:title="@string/title_settings" />
 </menu>

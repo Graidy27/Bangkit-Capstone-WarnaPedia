@@ -20,7 +20,6 @@ class FavoriteViewModel(application: FragmentActivity) : ViewModel() {
 
     private val mFavoriteColorPaletteRepository: FavoriteColorPaletteRepository = FavoriteColorPaletteRepository(application)
 
-
     fun insertFavorite(user: FavoriteColorPalette) {
         mFavoriteColorPaletteRepository.insert(user)
     }
