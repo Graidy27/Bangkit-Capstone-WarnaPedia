@@ -38,12 +38,12 @@ class RecomendationViewModel(application: FragmentActivity) : ViewModel() {
     fun setCurrentDesign(int: Int){
         _currentDesign.value = int
     }
-    fun insertFavorite(user: FavoriteColorPalette) {
-        mFavoriteColorPaletteRepository.insert(user)
+    fun insertFavorite(colorPalette: FavoriteColorPalette) {
+        mFavoriteColorPaletteRepository.insert(colorPalette)
     }
 
-    fun deleteFavorite(user: FavoriteColorPalette) {
-        mFavoriteColorPaletteRepository.delete(user)
+    fun deleteFavorite(colorPalette: FavoriteColorPalette) {
+        mFavoriteColorPaletteRepository.delete(colorPalette)
     }
 
     fun loadColorPalette(list_color_palette: ArrayList<ColorPalette>){

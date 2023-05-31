@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toTopOf="@+id/opening_chat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.7" />
+        app:layout_constraintWidth_percent="0.8" />
 
     <TextView
         android:id="@+id/opening_chat"

@@ -5,4 +5,5 @@
     <dimen name="example_design_container_height">260dp</dimen>
     <dimen name="example_design_height">200dp</dimen>
     <dimen name="example_design_nav">60dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>
