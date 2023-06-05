@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.data.ColorPalette
 import com.dicoding.warnapedia.databinding.ItemRowColorPaletteBinding
-import com.dicoding.warnapedia.ui.recomendation.RecomendationFragmentDirections
 import com.google.android.material.button.MaterialButton
 import kotlin.math.roundToInt
 

@@ -26,7 +26,7 @@ class RecomendationViewModel(application: FragmentActivity) : ViewModel() {
 
     private val mFavoriteColorPaletteRepository: FavoriteColorPaletteRepository = FavoriteColorPaletteRepository(application)
 
-    fun getCurrentColorPalette(): ColorPalette{
+    fun getCurrentColorPalette(): ColorPalette {
         return _currentColorPalette.value ?: ColorPalette()
     }
     fun setCurrentColorPalette(color_palette: ColorPalette){

@@ -15,8 +15,6 @@ import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.data.ColorPalette
 import com.dicoding.warnapedia.databinding.ItemRowColorPaletteBinding
 import com.dicoding.warnapedia.repository.FavoriteColorPaletteRepository
-import com.dicoding.warnapedia.ui.recomendation.RecomendationAdapter
-import com.dicoding.warnapedia.ui.recomendation.RecomendationFragmentDirections
 import com.google.android.material.button.MaterialButton
 import kotlin.math.roundToInt
 

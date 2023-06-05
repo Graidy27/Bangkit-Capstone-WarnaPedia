@@ -1,5 +1,6 @@
 package com.dicoding.warnapedia.ui.chat
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.databinding.FragmentChatBinding
 import com.dicoding.warnapedia.helper.ViewModelFactory
 import com.dicoding.warnapedia.ui.chat.chatdetail.ChatDetailViewModel
+import com.dicoding.warnapedia.ui.getstarted.GetStartedActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ChatFragment : Fragment() {
@@ -41,6 +43,11 @@ class ChatFragment : Fragment() {
             val mainActivity = (activity as? AppCompatActivity)
             val navView = mainActivity?.findViewById<BottomNavigationView>(R.id.nav_view)
             if (navView?.visibility == GONE) navView?.visibility = View.VISIBLE
+        }
+
+        binding.bQuestionMark.setOnClickListener{
+            startActivity(Intent(requireContext(), GetStartedActivity::class.java))
+            (activity as? AppCompatActivity)?.finish()
         }
 
         binding.bTypeHere.setOnClickListener {

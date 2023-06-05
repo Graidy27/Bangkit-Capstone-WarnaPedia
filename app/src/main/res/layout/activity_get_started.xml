@@ -4,41 +4,97 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.GetStartedActivity">
+    tools:context=".ui.getstarted.GetStartedActivity">
 
-    <FrameLayout
-        android:id="@+id/frame_layout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@color/A6A6A6"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/b_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_rectangle_5dp"
+        android:backgroundTint="@color/black"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:paddingHorizontal="10dp"
+        android:text="@string/SKIP"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.8"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/b_right_example_layout"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/selector_button_nav"
-        android:contentDescription="@string/example_nav_button_left"
-        android:src="@drawable/baseline_keyboard_arrow_left_24"
-        android:stateListAnimator="@animator/fade_state_list_animator_alpha"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/b_left_example_layout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frame_layout" />
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/b_left_example_layout"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/selector_button_nav"
-        android:contentDescription="@string/example_nav_button_right"
-        android:src="@drawable/baseline_keyboard_arrow_right_24"
-        android:stateListAnimator="@animator/fade_state_list_animator_alpha"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/idViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/idLLDots"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:id="@+id/idLLDots"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/b_right_example_layout"
-        app:layout_constraintTop_toBottomOf="@+id/frame_layout" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/idTVSlideOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="3dp"
+            android:text="•"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/idTVSlideTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="3dp"
+            android:text="•"
+            android:textAlignment="center"
+            android:textColor="@color/D8D8D8"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/idTVSlideThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="3dp"
+            android:text="•"
+            android:textAlignment="center"
+            android:textColor="@color/D8D8D8"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/idTVSlideFour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="3dp"
+            android:text="•"
+            android:textAlignment="center"
+            android:textColor="@color/D8D8D8"
+            android:textSize="40sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

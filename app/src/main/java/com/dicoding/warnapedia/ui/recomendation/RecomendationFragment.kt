@@ -4,10 +4,7 @@ import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.Color
-import android.graphics.ColorMatrix
-import android.graphics.ColorMatrixColorFilter
 import android.os.Bundle
-import android.util.Log
 import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
@@ -22,11 +19,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.data.ColorPalette
-import com.dicoding.warnapedia.data.ExampleColorPaletteData
 import com.dicoding.warnapedia.data.localdatabase.FavoriteColorPalette
 import com.dicoding.warnapedia.databinding.FragmentRecomendationBinding
 import com.dicoding.warnapedia.helper.ViewModelFactory
-import com.dicoding.warnapedia.ui.detail.DetailFragmentArgs
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
 import de.hdodenhof.circleimageview.CircleImageView

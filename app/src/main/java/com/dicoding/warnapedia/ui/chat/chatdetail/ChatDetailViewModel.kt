@@ -1,6 +1,5 @@
 package com.dicoding.warnapedia.ui.chat.chatdetail
 
-import android.util.Log
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
@@ -77,7 +76,7 @@ class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
         }
     }
 
-    fun formatedUserChat(str: String): Chat{
+    fun formatedUserChat(str: String): Chat {
         val new_chat = Chat()
         new_chat.type = 0
         new_chat.colorPalette = null

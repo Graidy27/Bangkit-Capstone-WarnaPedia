@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,17 +14,12 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.data.ColorPalette
-import com.dicoding.warnapedia.data.ExampleColorPaletteData
-import com.dicoding.warnapedia.data.localdatabase.FavoriteColorPalette
-import com.dicoding.warnapedia.databinding.ExampleWebDesign1Binding
 import com.dicoding.warnapedia.databinding.FragmentFavoriteBinding
 import com.dicoding.warnapedia.helper.ViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.button.MaterialButton
 import de.hdodenhof.circleimageview.CircleImageView
 
 class FavoriteFragment : Fragment() {

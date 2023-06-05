@@ -12,20 +12,17 @@
         android:theme="@style/Theme.WarnaPedia"
         tools:targetApi="31">
         <activity
-            android:name=".ui.GetStartedActivity"
-            android:exported="false"
-            android:label="@string/title_activity_get_started"
-            android:theme="@style/Theme.WarnaPedia.NoActionBar" />
+            android:name=".ui.getstarted.GetStartedActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SplashScreenActivity"
+            android:name=".ui.splashscreen.SplashScreenActivity"
             android:exported="true"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
