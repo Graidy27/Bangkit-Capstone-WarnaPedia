@@ -15,6 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.findFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.data.ColorPalette
@@ -25,6 +26,7 @@ import com.dicoding.warnapedia.databinding.FragmentFavoriteBinding
 import com.dicoding.warnapedia.helper.ViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
+import de.hdodenhof.circleimageview.CircleImageView
 
 class FavoriteFragment : Fragment() {
 
@@ -153,6 +155,20 @@ class FavoriteFragment : Fragment() {
     }
 
     fun setExampleDesign2Color(colorStr: ColorPalette){
-
+        val defaultColor = ContextCompat.getColor(requireContext(), R.color.F5F5F5)
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.comp1).setBackgroundColor(toColor(colorStr.colorOne, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp2_1).setTextColor(toColor(colorStr.colorTwo, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp2_2).setTextColor(toColor(colorStr.colorTwo, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp3_1).setTextColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp3_2).setTextColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp3_3).setTextColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp3_4).setTextColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.comp3_5).setBackgroundColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp3_6).setTextColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.comp3_7).setBackgroundColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp3_8).setTextColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.comp3_9).setBackgroundColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<ConstraintLayout>(R.id.l_example_design).setBackgroundColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<CircleImageView>(R.id.comp4).borderColor = toColor(colorStr.colorFour, defaultColor)
     }
 }

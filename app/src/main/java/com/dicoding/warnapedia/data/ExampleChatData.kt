@@ -43,7 +43,6 @@ object ExampleChatData {
             )
         ),
     )
-
     val listData: ArrayList<Chat>
         get() {
             val list = ArrayList<Chat>()

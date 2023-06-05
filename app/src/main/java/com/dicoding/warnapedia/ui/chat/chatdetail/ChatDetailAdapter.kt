@@ -1,6 +1,5 @@
 package com.dicoding.warnapedia.ui.chat.chatdetail
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View.VISIBLE
 import android.view.ViewGroup
@@ -26,12 +25,16 @@ class ChatDetailAdapter(
         viewHolder.binding.tvMessage.text = message
         if(type == 0) {
             viewHolder.binding.userIcon.setImageResource(R.drawable.baseline_user_icon)
+            viewHolder.binding.userIcon.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
             viewHolder.binding.layoutCard.setBackgroundColor(ContextCompat.getColor(context, R.color.white))
         }else if(type == 1) {
-            viewHolder.binding.userIcon.setImageResource(R.drawable.ic_launcher_warnapedia_textlogo_vector)
+            viewHolder.binding.userIcon.setImageResource(R.drawable.warnapedia_icon_logo)
+            viewHolder.binding.userIcon.setBackgroundColor(ContextCompat.getColor(context, R.color.F1C743))
             viewHolder.binding.layoutCard.setBackgroundColor(ContextCompat.getColor(context, R.color.D8D8D8))
         }else if(type == 2){
-            viewHolder.binding.userIcon.setImageResource(R.drawable.ic_launcher_warnapedia_textlogo_vector)
+            viewHolder.binding.userIcon.setBackgroundColor(ContextCompat.getColor(context, R.color.F1C743))
+            viewHolder.binding.layoutCard.setBackgroundColor(ContextCompat.getColor(context, R.color.D8D8D8))
+            viewHolder.binding.userIcon.setImageResource(R.drawable.warnapedia_icon_logo)
             viewHolder.binding.goToDesign.visibility = VISIBLE
             viewHolder.binding.goToDesign.setOnClickListener{
                 val toRecomendationFragment = ChatDetailFragmentDirections.actionChatDetailFragmentToNavigationRecomendation(

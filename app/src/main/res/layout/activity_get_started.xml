@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.GetStartedActivity">
+
+    <FrameLayout
+        android:id="@+id/frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/A6A6A6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/b_right_example_layout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/selector_button_nav"
+        android:contentDescription="@string/example_nav_button_left"
+        android:src="@drawable/baseline_keyboard_arrow_left_24"
+        android:stateListAnimator="@animator/fade_state_list_animator_alpha"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/b_left_example_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frame_layout" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/b_left_example_layout"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/selector_button_nav"
+        android:contentDescription="@string/example_nav_button_right"
+        android:src="@drawable/baseline_keyboard_arrow_right_24"
+        android:stateListAnimator="@animator/fade_state_list_animator_alpha"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/b_right_example_layout"
+        app:layout_constraintTop_toBottomOf="@+id/frame_layout" />
+</androidx.constraintlayout.widget.ConstraintLayout>

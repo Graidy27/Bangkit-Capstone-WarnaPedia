@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginBottom="80dp"
-        android:src="@drawable/ic_launcher_warnapedia_textlogo_vector"
+        android:src="@drawable/warnapedia_text_logo"
         app:layout_constraintBottom_toTopOf="@+id/opening_chat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

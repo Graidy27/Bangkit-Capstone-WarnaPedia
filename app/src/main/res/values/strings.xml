@@ -13,8 +13,16 @@
     <string name="example_palette">Palette One</string>
     <string name="example_nav_button_right">Example Design Nav Button Right</string>
     <string name="example_nav_button_left">Example Design Nav Button Left</string>
+    <string name="dummy_name">John Doe</string>
+    <string name="dummy_job">Junior Web Developer</string>
+    <string name="dummy_age">Age: 23 years old</string>
+    <string name="dummy_phone_number">Phone: +62-2222-3333</string>
+    <string name="dummy_email">Email: john@dummy.com</string>
     <string name="delete_chat_confirmation">This action will delete all conversation history. Do you want to proceed?</string>
     <string name="selected">selected</string>
+    <string name="setting_color_blind">Are you color blind?</string>
+    <string name="personal_information">Personal Information</string>
+    <string name="my_story">My Story</string>
     <string name="the">The</string>
     <string name="login">Login</string>
     <string name="favorite">favorite</string>
@@ -24,12 +32,16 @@
     <string name="send_button">Send Button</string>
     <string name="go_to_design">Go To Design</string>
     <string name="long_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies mi vel scelerisque ullamcorper. Integer nec efficitur orci, vel commodo massa. Nullam eget congue ante. Nulla nunc nisl, dapibus a semper eu, rutrum ut purus. Morbi semper, massa eu mattis fringilla, orci eros imperdiet sem, in ultrices diam purus feugiat ex. Etiam eget rhoncus mi. Vivamus vitae turpis condimentum, commodo ligula vitae, rhoncus justo. Fusce eu felis ante.</string>
+    <string name="medium_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies mi vel scelerisque ullamcorper. Integer nec efficitur orci, vel commodo massa. Nullam eget congue ante. Nulla nunc nisl, dapibus a semper eu, rutrum ut purus.</string>
     <string name="default_first_chat">What do you want to create today?</string>
     <string name="FAVORITE">FAVORITE</string>
     <string name="RECOMENDATION">RECOMENDATION</string>
+    <string name="YES">YES</string>
+    <string name="NO">NO</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="title_activity_get_started">GetStartedActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>

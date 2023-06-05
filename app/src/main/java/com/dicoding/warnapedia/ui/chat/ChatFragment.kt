@@ -4,19 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
-import android.view.View.INVISIBLE
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import com.dicoding.warnapedia.MainActivity
 import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.databinding.FragmentChatBinding
 import com.dicoding.warnapedia.helper.ViewModelFactory
 import com.dicoding.warnapedia.ui.chat.chatdetail.ChatDetailViewModel
-import com.dicoding.warnapedia.ui.favorite.FavoriteFragmentDirections
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class ChatFragment : Fragment() {

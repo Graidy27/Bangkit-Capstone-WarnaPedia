@@ -18,13 +18,11 @@
             android:layout_height="match_parent"
             app:layout_scrollFlags="scroll|enterAlways|snap" />
     </com.google.android.material.appbar.AppBarLayout>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/l_example_design_container"
         android:layout_width="match_parent"
         android:layout_height="@dimen/example_design_container_height"
         app:layout_constraintTop_toBottomOf="@+id/app_bar_layout">
-
         <FrameLayout
             android:id="@+id/frameLayoutExampleDesign"
             android:layout_width="match_parent"
@@ -32,7 +30,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/example_design_nav"
@@ -75,16 +72,13 @@
                 app:layout_constraintTop_toTopOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_color_palette"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="316dp"
-        android:layout_marginBottom="?attr/actionBarSize"
         app:layout_constraintBottom_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/l_example_design_container"
         app:layout_constraintVertical_bias="0.277"

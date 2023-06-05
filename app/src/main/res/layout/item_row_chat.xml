@@ -19,7 +19,9 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/ic_launcher_warnapedia_textlogo_vector"
+            android:src="@drawable/warnapedia_icon_logo"
+            android:background="@color/F1C743"
+            android:padding="2dp"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toTopOf="parent" />
 

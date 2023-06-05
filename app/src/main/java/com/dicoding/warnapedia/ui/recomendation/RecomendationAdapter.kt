@@ -2,9 +2,7 @@ package com.dicoding.warnapedia.ui.recomendation
 
 import android.content.res.Resources
 import android.graphics.Color
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -63,14 +61,17 @@ class RecomendationAdapter(
             onItemClickCallback.onItemClick(listColorPalette[viewHolder.adapterPosition])
             setSingleSelection(viewHolder.adapterPosition)
         }
+        val gestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
+            override fun onLongPress(e: MotionEvent) {
+                toDetailFragment(viewHolder, color_palette_name, color_one, color_two, color_three, color_four)
+            }
+        })
+        viewHolder.itemView.setOnTouchListener { _, event ->
+            gestureDetector.onTouchEvent(event)
+            false
+        }
         viewHolder.binding.mbViewDetailButton.setOnClickListener {
-            val toDetailFragment = RecomendationFragmentDirections.actionNavigationRecomendationToDetailFragment(
-                arrayOf(
-                    color_one, color_two, color_three, color_four),
-                context.resources.getString(R.string.RECOMENDATION)
-            )
-            toDetailFragment.colorPaletteName = color_palette_name
-            viewHolder.itemView.findNavController().navigate(toDetailFragment)
+            toDetailFragment(viewHolder, color_palette_name, color_one, color_two, color_three, color_four)
         }
     }
 
@@ -89,6 +90,22 @@ class RecomendationAdapter(
         selectedItemPosition =  adapterPosition
 
         notifyItemChanged(selectedItemPosition)
+    }
+
+    private fun toDetailFragment(viewHolder: ViewHolder,
+                                 color_palette_name: String,
+                                 color_one: String,
+                                 color_two: String,
+                                 color_three: String,
+                                 color_four: String,
+    ){
+        val toDetailFragment = RecomendationFragmentDirections.actionNavigationRecomendationToDetailFragment(
+            arrayOf(
+                color_one, color_two, color_three, color_four),
+            context.resources.getString(R.string.RECOMENDATION)
+        )
+        toDetailFragment.colorPaletteName = color_palette_name
+        viewHolder.itemView.findNavController().navigate(toDetailFragment)
     }
 
     val Int.dp: Int

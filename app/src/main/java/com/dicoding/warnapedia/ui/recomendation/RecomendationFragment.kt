@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.content.res.Resources
 import android.graphics.Color
+import android.graphics.ColorMatrix
+import android.graphics.ColorMatrixColorFilter
 import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue
@@ -27,6 +29,7 @@ import com.dicoding.warnapedia.helper.ViewModelFactory
 import com.dicoding.warnapedia.ui.detail.DetailFragmentArgs
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.button.MaterialButton
+import de.hdodenhof.circleimageview.CircleImageView
 import kotlin.math.roundToInt
 
 class RecomendationFragment : Fragment() {
@@ -187,7 +190,21 @@ class RecomendationFragment : Fragment() {
     }
 
     fun setExampleDesign2Color(colorStr: ColorPalette){
-
+        val defaultColor = ContextCompat.getColor(requireContext(), R.color.F5F5F5)
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.comp1).setBackgroundColor(toColor(colorStr.colorOne, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp2_1).setTextColor(toColor(colorStr.colorTwo, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp2_2).setTextColor(toColor(colorStr.colorTwo, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp3_1).setTextColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp3_2).setTextColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp3_3).setTextColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp3_4).setTextColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.comp3_5).setBackgroundColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp3_6).setTextColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.comp3_7).setBackgroundColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp3_8).setTextColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.comp3_9).setBackgroundColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<ConstraintLayout>(R.id.l_example_design).setBackgroundColor(toColor(colorStr.colorThree, defaultColor))
+        binding.frameLayoutExampleDesign.findViewById<CircleImageView>(R.id.comp4).borderColor = toColor(colorStr.colorFour, defaultColor)
     }
 
     val Int.dp: Int

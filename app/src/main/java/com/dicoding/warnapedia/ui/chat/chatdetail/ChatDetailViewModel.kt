@@ -37,10 +37,10 @@ class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
         val currentList = _listChat.value?.toMutableList() ?: mutableListOf()
         currentList.add(ExampleChatData.listData[example_index])
         insertChat(ExampleChatData.listData[example_index], false)
-        if (example_index == 4){
+        if (example_index >= 4){
             example_index = 1
         }else {
-            example_index = example_index + 1
+            example_index += 1
         }
         _listChat.value = currentList
     }
@@ -54,6 +54,7 @@ class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
     }
 
     fun deleteChat() {
+        example_index = 1
         mChatsRepository.delete()
     }
 
