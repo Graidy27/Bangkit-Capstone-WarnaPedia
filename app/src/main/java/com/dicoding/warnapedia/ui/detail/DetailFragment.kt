@@ -1,10 +1,14 @@
 package com.dicoding.warnapedia.ui.detail
 
+import android.content.DialogInterface
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.*
+import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -24,6 +28,8 @@ class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
 
     private val binding get() = _binding!!
+
+    private var colorPaletteName = ""
 
     private val detailViewModel by activityViewModels<DetailViewModel>{
         ViewModelFactory.getInstance(requireActivity())
@@ -97,17 +103,41 @@ class DetailFragment : Fragment() {
         val colors = DetailFragmentArgs.fromBundle(arguments as Bundle).colors
         val color_palette_name = DetailFragmentArgs.fromBundle(arguments as Bundle).colorPaletteName
         val curr_favorite_color_palette = FavoriteColorPalette(id, color_palette_name,colors[0],colors[1],colors[2],colors[3])
+        val inflater = requireActivity().layoutInflater
+        val dialogView = inflater.inflate(R.layout.dialog_edit_color_palette_name, null)
+        val dialogBuilder = AlertDialog.Builder(requireActivity(), R.style.CustomAlertDialog)
+        val editText = dialogView.findViewById<EditText>(R.id.et_color_palette_name)
+        editText.setText(color_palette_name)
         return when (item.itemId) {
             R.id.favorite -> {
-                if (item.isChecked == true){
+                if (item.isChecked){
                     detailViewModel.deleteFavorite(curr_favorite_color_palette)
-                    item.setIcon(ContextCompat.getDrawable(requireContext(), R.drawable.baseline_favorite_border_24))
+                    item.icon = ContextCompat.getDrawable(requireContext(), R.drawable.baseline_favorite_border_24)
                     item.isChecked = false
                 }else {
                     detailViewModel.insertFavorite(curr_favorite_color_palette)
-                    item.setIcon(ContextCompat.getDrawable(requireContext(), R.drawable.baseline_favorite_24))
+                    item.icon = ContextCompat.getDrawable(requireContext(), R.drawable.baseline_favorite_24)
                     item.isChecked = true
                 }
+                true
+            }
+            R.id.edit -> {
+                dialogBuilder.setView(dialogView)
+                    .setMessage(resources.getString(R.string.edit_color_palette_name))
+                    .setPositiveButton(resources.getString(R.string.PROCEED)) { dialog, _ ->
+                        val enteredText = editText.text.toString()
+                        detailViewModel.updateFavoriteColorPaletteName(enteredText, id).observe(viewLifecycleOwner) { isSuccess ->
+                            if (isSuccess) {
+                                (activity as? AppCompatActivity)?.supportActionBar?.title = enteredText
+                            }
+                        }
+                        dialog.dismiss()
+                    }
+                    .setNegativeButton(resources.getString(R.string.CANCEL)) { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .create()
+                    .show()
                 true
             }
             else -> super.onOptionsItemSelected(item)

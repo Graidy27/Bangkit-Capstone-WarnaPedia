@@ -5,8 +5,10 @@ import androidx.lifecycle.LiveData
 import com.dicoding.warnapedia.data.localdatabase.FavoriteColorPalette
 import com.dicoding.warnapedia.data.localdatabase.FavoriteColorPaletteDao
 import com.dicoding.warnapedia.data.localdatabase.LocalRoomDatabase
+import java.util.concurrent.Callable
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
+import java.util.concurrent.Future
 
 class FavoriteColorPaletteRepository(application: FragmentActivity) {
     private val mFavoriteColorPaletteDao: FavoriteColorPaletteDao
@@ -17,6 +19,11 @@ class FavoriteColorPaletteRepository(application: FragmentActivity) {
     }
     fun getFavoriteColorPaletteById(id: Int): LiveData<FavoriteColorPalette> = mFavoriteColorPaletteDao.getFavoriteColorPaletteById(id)
     fun getFavoriteColorPalette(): LiveData<List<FavoriteColorPalette>> = mFavoriteColorPaletteDao.getFavoriteColorPalette()
+    fun updateFavoriteColorPaletteName(new_name: String, id: Int): Future<Int> {
+        return executorService.submit( Callable {
+            mFavoriteColorPaletteDao.updateFavoriteColorPaletteName(new_name, id)
+        })
+    }
     fun insert(color_palette: FavoriteColorPalette) {
         executorService.execute {
             mFavoriteColorPaletteDao.insert(color_palette)

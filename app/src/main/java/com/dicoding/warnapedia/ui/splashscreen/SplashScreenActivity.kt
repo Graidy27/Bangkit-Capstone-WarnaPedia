@@ -39,8 +39,8 @@ class SplashScreenActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             if (isFirstOpened) {
-                startActivity(Intent(this, GetStartedActivity::class.java))
                 savePreferenceSetting(false)
+                startActivity(Intent(this, GetStartedActivity::class.java))
             }else {
                 startActivity(Intent(this, MainActivity::class.java))
             }
@@ -50,12 +50,12 @@ class SplashScreenActivity : AppCompatActivity() {
 
     private fun savePreferenceSetting(boolean: Boolean){
         lifecycleScope.launch {
-            preference.savePreferenceSetting(boolean)
+            preference.setIsFirstOpened(boolean)
         }
     }
     private fun getPreferenceSetting(){
         lifecycleScope.launch {
-            preference.getPreferenceSetting().collect { boolean ->
+            preference.getIsFirstOpened().collect { boolean ->
                 isFirstOpened = boolean
             }
         }

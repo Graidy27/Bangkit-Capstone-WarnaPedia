@@ -19,4 +19,8 @@ interface FavoriteColorPaletteDao {
 
     @Query("SELECT * FROM FavoriteColorPalette ORDER BY id ASC")
     fun getFavoriteColorPalette(): LiveData<List<FavoriteColorPalette>>
+
+    @Query("UPDATE FavoriteColorPalette SET name = :name WHERE id = :id")
+    fun updateFavoriteColorPaletteName(name: String, id: Int): Int
 }
+

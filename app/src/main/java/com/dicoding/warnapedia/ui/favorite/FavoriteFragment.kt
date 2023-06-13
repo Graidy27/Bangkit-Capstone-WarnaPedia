@@ -58,6 +58,8 @@ class FavoriteFragment : Fragment() {
             if (navView?.visibility == View.GONE) navView?.visibility = View.VISIBLE
         }
 
+
+
         favoriteViewModel.listColorPalette.observe(viewLifecycleOwner) { listColorPalette ->
             adapter.updateData(listColorPalette)
             adapter.notifyDataSetChanged()

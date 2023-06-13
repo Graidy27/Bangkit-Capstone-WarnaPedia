@@ -7,6 +7,7 @@
     <string name="title_settings">Settings</string>
     <string name="title_chat">Chat</string>
     <string name="title_favorite">Favorite</string>
+    <string name="title_edit">Edit</string>
     <string name="title_delete">Delete</string>
     <string name="example_color">#FFBB86FC</string>
     <string name="example_design">Example Design</string>
@@ -15,6 +16,7 @@
     <string name="example_nav_button_left">Example Design Nav Button Left</string>
     <string name="error_response_no_connection">No connection available, please check your connection and try again</string>
     <string name="error_response_server_down">Sorry our service is currently down, please try again a few minute</string>
+    <string name="enter_text">Enter Text</string>
     <string name="dummy_name">John Doe</string>
     <string name="dummy_job">Junior Web Developer</string>
     <string name="dummy_age">Age: 23 years old</string>
@@ -49,9 +51,12 @@
     <string name="version_value">1.0</string>
     <string name="color_blind">Color Blind</string>
     <string name="color_blind_value">None</string>
+    <string name="edit_color_palette_name">Edit Color Palette Name</string>
     <string name="setting_color_blind_spinner">Setting Color Blind Spinner</string>
     <string name="FAVORITE">FAVORITE</string>
     <string name="RECOMMENDATION">RECOMMENDATION</string>
+    <string name="PROCEED">PROCEED</string>
+    <string name="CANCEL">CANCEL</string>
     <string name="YES">YES</string>
     <string name="NO">NO</string>
     <string name="SKIP">SKIP</string>

@@ -112,13 +112,13 @@ class ChatDetailFragment : Fragment() {
             R.id.delete -> {
                 val dialogBuilder = AlertDialog.Builder(requireActivity(), R.style.CustomAlertDialog)
                 dialogBuilder.setMessage(resources.getString(R.string.delete_chat_confirmation))
-                    .setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
+                    .setPositiveButton(resources.getString(R.string.YES)){ dialog, _ ->
                         chatDetailViewModel.deleteChat()
                         dialog.dismiss()
-                    })
-                    .setNegativeButton("No", DialogInterface.OnClickListener { dialog, which ->
+                    }
+                    .setNegativeButton(resources.getString(R.string.NO)) { dialog, _ ->
                         dialog.dismiss()
-                    })
+                    }
                     .create()
                     .show()
                 true
