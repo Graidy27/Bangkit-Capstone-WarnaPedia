@@ -3,26 +3,28 @@ package com.dicoding.warnapedia.data.localdatabase
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.Index
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
-@Entity(tableName = "FavoriteColorPalette", indices = [Index(value = ["color_palette_name"], unique = true)])
+@Entity(tableName = "FavoriteColorPalette")
 @Parcelize
 data class FavoriteColorPalette(
-    @PrimaryKey(autoGenerate = false)
-    @ColumnInfo(name = "color_palette_name")
-    var colorPaletteName: String = "",
+    @PrimaryKey(autoGenerate = true)
+    @ColumnInfo(name = "id")
+    var id: Int = 0,
 
-    @ColumnInfo(name = "color_one")
-    var colorOne: String? = null,
+    @ColumnInfo(name = "name")
+    var name: String = "",
 
-    @ColumnInfo(name = "color_two")
-    var colorTwo: String? = null,
+    @ColumnInfo(name = "color1")
+    var color1: String? = null,
 
-    @ColumnInfo(name = "color_three")
-    var colorThree: String? = null,
+    @ColumnInfo(name = "color2")
+    var color2: String? = null,
 
-    @ColumnInfo(name = "color_four")
-    var colorFour: String? = null,
+    @ColumnInfo(name = "color3")
+    var color3: String? = null,
+
+    @ColumnInfo(name = "color4")
+    var color4: String? = null,
 ) : Parcelable

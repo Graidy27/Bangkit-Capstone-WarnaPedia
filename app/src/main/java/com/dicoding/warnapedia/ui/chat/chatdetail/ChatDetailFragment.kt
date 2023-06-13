@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.databinding.FragmentChatDetailBinding
+import com.dicoding.warnapedia.helper.CheckConnection
 import com.dicoding.warnapedia.helper.ViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -23,6 +24,11 @@ class ChatDetailFragment : Fragment() {
 
     private val chatDetailViewModel by activityViewModels<ChatDetailViewModel>{
         ViewModelFactory.getInstance(requireActivity())
+    }
+
+    private val checkConnection by lazy {
+        getActivity()?.getApplication()
+        ?.let { CheckConnection(it) }
     }
 
     override fun onCreateView(
@@ -52,20 +58,49 @@ class ChatDetailFragment : Fragment() {
             navView?.visibility = View.GONE
         }
 
-        chatDetailViewModel.listChat.observe(viewLifecycleOwner) { listChat ->
-            adapter.updateData(listChat)
+        checkConnection?.observe(requireActivity()) {
+            if (it) {
+                (activity as? AppCompatActivity)?.supportActionBar?.subtitle = "Online"
+            } else {
+                (activity as? AppCompatActivity)?.supportActionBar?.subtitle = "Offline"
+            }
         }
 
-        chatDetailViewModel.loadChat(viewLifecycleOwner, requireActivity())
+        chatDetailViewModel.listChat.observe(viewLifecycleOwner) { listChat ->
+            val isNewData = chatDetailViewModel.getIsNewData()
+            if (isNewData){
+                adapter.updateData(listChat, true)
+                chatDetailViewModel.setIsNewData(false)
+            }else{
+                adapter.updateData(listChat)
+            }
+            binding.rvChat.scrollToPosition(adapter.itemCount - 1)
+        }
+
+        chatDetailViewModel.loadChat(viewLifecycleOwner)
+
+        chatDetailViewModel.isLoading.observe(viewLifecycleOwner) {
+            isLoading ->
+            (activity as? AppCompatActivity)?.supportActionBar?.subtitle = if (isLoading == true){
+                binding.btnSend.isEnabled = false
+                "Warna Pedia is typing..."
+            }else {
+                binding.btnSend.isEnabled = true
+                "Online"
+            }
+        }
 
         binding.btnSend.setOnClickListener {
             val text = binding.textMessage.text.toString()
             if (!text.isNullOrEmpty()){
                 chatDetailViewModel.addChat(text)
                 binding.textMessage.setText("")
-                chatDetailViewModel.getResponse(text)
-                binding.rvChat.scrollToPosition(adapter.itemCount - 1)
+                chatDetailViewModel.getResponse(text, viewLifecycleOwner)
             }
+        }
+
+        chatDetailViewModel.isLoading.observe(viewLifecycleOwner){ boolean ->
+
         }
     }
 

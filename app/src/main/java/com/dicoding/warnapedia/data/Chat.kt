@@ -9,6 +9,6 @@ data class Chat(
     @field:SerializedName("message")
     var message: String = "",
 
-    @field:SerializedName("color_palette")
+    @field:SerializedName("colorPalette")
     var colorPalette: List<ColorPalette>? = null,
 )

@@ -3,13 +3,13 @@ package com.dicoding.warnapedia.ui.recomendation
 import android.content.res.Resources
 import android.graphics.Color
 import android.view.*
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.data.ColorPalette
 import com.dicoding.warnapedia.databinding.ItemRowColorPaletteBinding
-import com.google.android.material.button.MaterialButton
 import kotlin.math.roundToInt
 
 class RecomendationAdapter(
@@ -30,7 +30,7 @@ class RecomendationAdapter(
         this.onFavoriteButtonClickCallback = onFavoriteButtonClickCallback
     }
     interface OnFavoriteButtonClickCallback {
-        fun onFavoriteButtonClick(data: ColorPalette, button: MaterialButton)
+        fun onFavoriteButtonClick(data: ColorPalette)
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
@@ -44,7 +44,7 @@ class RecomendationAdapter(
             itemLayoutParams.topMargin = 10.dp
             viewHolder.itemView.layoutParams = itemLayoutParams
         }
-        val (color_palette_name, color_one, color_two, color_three, color_four) = listColorPalette[position]
+        val (id, color_palette_name, color_one, color_two, color_three, color_four) = listColorPalette[position]
         viewHolder.binding.tvColorPaletteName.text = color_palette_name
         viewHolder.binding.clBackgroundLayout.setBackgroundColor(Color.parseColor(color_one))
         viewHolder.binding.colorTwo.setBackgroundColor(Color.parseColor(color_two))
@@ -55,14 +55,22 @@ class RecomendationAdapter(
         }else{
             viewHolder.binding.llSelectedColorPalette.visibility = View.GONE
         }
-        onFavoriteButtonClickCallback.onFavoriteButtonClick(listColorPalette[viewHolder.adapterPosition], viewHolder.binding.mbFavoriteButton)
+        viewHolder.binding.mbFavoriteButton.addOnCheckedChangeListener { button, isChecked ->
+            if (isChecked){
+                button.icon = ContextCompat.getDrawable(context, R.drawable.baseline_favorite_24)
+                onFavoriteButtonClickCallback.onFavoriteButtonClick(listColorPalette[viewHolder.adapterPosition])
+                button.isEnabled = false
+            }
+        }
         viewHolder.itemView.setOnClickListener {
-            onItemClickCallback.onItemClick(listColorPalette[viewHolder.adapterPosition])
-            setSingleSelection(viewHolder.adapterPosition)
+            if (selectedItemPosition != viewHolder.adapterPosition){
+                onItemClickCallback.onItemClick(listColorPalette[viewHolder.adapterPosition])
+                setSingleSelection(viewHolder.adapterPosition)
+            }
         }
         val gestureDetector = GestureDetector(context, object : GestureDetector.SimpleOnGestureListener() {
             override fun onLongPress(e: MotionEvent) {
-                toDetailFragment(viewHolder, color_palette_name, color_one, color_two, color_three, color_four)
+                toDetailFragment(viewHolder, id, color_palette_name, color_one, color_two, color_three, color_four)
             }
         })
         viewHolder.itemView.setOnTouchListener { _, event ->
@@ -70,7 +78,7 @@ class RecomendationAdapter(
             false
         }
         viewHolder.binding.mbViewDetailButton.setOnClickListener {
-            toDetailFragment(viewHolder, color_palette_name, color_one, color_two, color_three, color_four)
+            toDetailFragment(viewHolder, id, color_palette_name, color_one, color_two, color_three, color_four)
         }
     }
 
@@ -92,6 +100,7 @@ class RecomendationAdapter(
     }
 
     private fun toDetailFragment(viewHolder: ViewHolder,
+                                 id: Int,
                                  color_palette_name: String,
                                  color_one: String,
                                  color_two: String,
@@ -99,9 +108,10 @@ class RecomendationAdapter(
                                  color_four: String,
     ){
         val toDetailFragment = RecomendationFragmentDirections.actionNavigationRecomendationToDetailFragment(
+            id,
             arrayOf(
                 color_one, color_two, color_three, color_four),
-            context.resources.getString(R.string.RECOMENDATION)
+            context.resources.getString(R.string.RECOMMENDATION)
         )
         toDetailFragment.colorPaletteName = color_palette_name
         viewHolder.itemView.findNavController().navigate(toDetailFragment)

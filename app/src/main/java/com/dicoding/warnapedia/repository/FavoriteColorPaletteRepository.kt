@@ -15,7 +15,7 @@ class FavoriteColorPaletteRepository(application: FragmentActivity) {
         val db = LocalRoomDatabase.getDatabase(application)
         mFavoriteColorPaletteDao = db.favoriteColorPaletteDao()
     }
-    fun getFavoriteColorPaletteByName(color_palette_name: String): LiveData<FavoriteColorPalette> = mFavoriteColorPaletteDao.getFavoriteColorPaletteByName(color_palette_name)
+    fun getFavoriteColorPaletteById(id: Int): LiveData<FavoriteColorPalette> = mFavoriteColorPaletteDao.getFavoriteColorPaletteById(id)
     fun getFavoriteColorPalette(): LiveData<List<FavoriteColorPalette>> = mFavoriteColorPaletteDao.getFavoriteColorPalette()
     fun insert(color_palette: FavoriteColorPalette) {
         executorService.execute {
@@ -23,6 +23,6 @@ class FavoriteColorPaletteRepository(application: FragmentActivity) {
         }
     }
     fun delete(color_palette: FavoriteColorPalette) {
-        executorService.execute { mFavoriteColorPaletteDao.delete(color_palette.colorPaletteName) }
+        executorService.execute { mFavoriteColorPaletteDao.delete(color_palette.id) }
     }
 }

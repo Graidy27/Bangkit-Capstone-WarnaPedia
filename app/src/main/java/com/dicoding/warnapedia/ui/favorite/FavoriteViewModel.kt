@@ -39,30 +39,19 @@ class FavoriteViewModel(application: FragmentActivity) : ViewModel() {
         _currentDesign.value = int
     }
 
-    fun insertFavorite(user: FavoriteColorPalette) {
-        mFavoriteColorPaletteRepository.insert(user)
-    }
-
-    fun deleteFavorite(user: FavoriteColorPalette) {
-        mFavoriteColorPaletteRepository.delete(user)
-    }
-
     fun loadFavoriteColorPalette(viewLifecycleOwner: LifecycleOwner){
         mFavoriteColorPaletteRepository.getFavoriteColorPalette().observe(viewLifecycleOwner){ favColorPaletteList ->
             val formattedObjectList = favColorPaletteList.map {
                 ColorPalette(
-                    colorPaletteName =  it.colorPaletteName,
-                    colorOne = it.colorOne.toString(),
-                    colorTwo = it.colorTwo.toString(),
-                    colorThree = it.colorThree.toString(),
-                    colorFour = it.colorFour.toString(),
+                    id = it.id,
+                    name =  it.name,
+                    color1 = it.color1.toString(),
+                    color2 = it.color2.toString(),
+                    color3 = it.color3.toString(),
+                    color4 = it.color4.toString(),
                 )
             }
             _listColorPalette.value = formattedObjectList
         }
-    }
-
-    fun getFavoriteColorPaletteByName(username: String): LiveData<FavoriteColorPalette> {
-        return mFavoriteColorPaletteRepository.getFavoriteColorPaletteByName(username)
     }
 }

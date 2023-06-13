@@ -49,11 +49,11 @@ class RecomendationViewModel(application: FragmentActivity) : ViewModel() {
     fun loadColorPalette(list_color_palette: ArrayList<ColorPalette>){
         val formattedObjectList = list_color_palette.map {
             ColorPalette(
-                colorPaletteName =  it.colorPaletteName,
-                colorOne = it.colorOne,
-                colorTwo = it.colorTwo,
-                colorThree = it.colorThree,
-                colorFour = it.colorFour,
+                name =  it.name,
+                color1 = it.color1,
+                color2 = it.color2,
+                color3 = it.color3,
+                color4 = it.color4,
             )
         }
         _listColorPalette.value = formattedObjectList

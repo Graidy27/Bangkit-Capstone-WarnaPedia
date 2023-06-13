@@ -43,6 +43,9 @@
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
             android:name="color_palette_name"
             app:argType="string"
             android:defaultValue="Color Palette" />

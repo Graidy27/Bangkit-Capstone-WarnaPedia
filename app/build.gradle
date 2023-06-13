@@ -6,6 +6,8 @@ plugins {
     id 'kotlin-parcelize'
     //  Room
     id 'kotlin-kapt'
+    //  Secret
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -20,6 +22,8 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "BASE_URL", '"https://warnapedia-tic3wkuawa-et.a.run.app/"')
     }
 
     buildTypes {
@@ -53,7 +57,10 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.5.3'
 
     // Retrofit
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
 
     // Card View
     implementation 'androidx.cardview:cardview:1.0.0'

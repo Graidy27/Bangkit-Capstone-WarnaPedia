@@ -13,15 +13,16 @@
     <string name="example_palette">Palette One</string>
     <string name="example_nav_button_right">Example Design Nav Button Right</string>
     <string name="example_nav_button_left">Example Design Nav Button Left</string>
+    <string name="error_response_no_connection">No connection available, please check your connection and try again</string>
+    <string name="error_response_server_down">Sorry our service is currently down, please try again a few minute</string>
     <string name="dummy_name">John Doe</string>
     <string name="dummy_job">Junior Web Developer</string>
     <string name="dummy_age">Age: 23 years old</string>
     <string name="dummy_phone_number">Phone: +62-2222-3333</string>
     <string name="dummy_email">Email: john@dummy.com</string>
     <string name="dummy_title">Title 1</string>
-    <string name="delete_chat_confirmation">This action will delete all conversation history. Do you want to proceed?</string>
+    <string name="delete_chat_confirmation">This action will delete all chat history. Do you want to proceed?</string>
     <string name="selected">selected</string>
-    <string name="setting_color_blind">Are you color blind?</string>
     <string name="personal_information">Personal Information</string>
     <string name="my_story">My Story</string>
     <string name="the">The</string>
@@ -36,18 +37,30 @@
     <string name="medium_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies mi vel scelerisque ullamcorper. Integer nec efficitur orci, vel commodo massa. Nullam eget congue ante. Nulla nunc nisl, dapibus a semper eu, rutrum ut purus.</string>
     <string name="short_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies mi vel scelerisque ullamcorper.</string>
     <string name="default_first_chat">What do you want to create today?</string>
-    <string name="color_palette_recomendation">Color Palette Recomendation</string>
-    <string name="color_palette_recomendation_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies mi vel scelerisque ullamcorper.</string>
-    <string name="save_color_palette_recomendation">Save Color Palette Recomendation</string>
-    <string name="save_color_palette_recomendation_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies mi vel scelerisque ullamcorper.</string>
+    <string name="color_palette_recomendation">Color Palette Recommendation</string>
+    <string name="color_palette_recomendation_desc">You can ask color palette with just type on the text box</string>
+    <string name="save_color_palette_recomendation">Save Color Palette Recommendation</string>
+    <string name="save_color_palette_recomendation_desc">You can save your preferred color palette for the future use</string>
     <string name="access_saved_color_palette">Access Your Saved Color Palette</string>
-    <string name="access_saved_color_palette_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies mi vel scelerisque ullamcorper.</string>
+    <string name="access_saved_color_palette_desc">Go to the favorite menu to access your preferred color palette</string>
     <string name="color_blind_feature">Color Blind Feature</string>
-    <string name="color_blind_feature_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies mi vel scelerisque ullamcorper.</string>
+    <string name="color_blind_feature_desc">If you have a color blind, you can choose which color you can\'t see</string>
+    <string name="version">Version</string>
+    <string name="version_value">1.0</string>
+    <string name="color_blind">Color Blind</string>
+    <string name="color_blind_value">None</string>
+    <string name="setting_color_blind_spinner">Setting Color Blind Spinner</string>
     <string name="FAVORITE">FAVORITE</string>
-    <string name="RECOMENDATION">RECOMENDATION</string>
+    <string name="RECOMMENDATION">RECOMMENDATION</string>
     <string name="YES">YES</string>
     <string name="NO">NO</string>
     <string name="SKIP">SKIP</string>
     <string name="GET_STARTED">GET STARTED</string>
+
+    <string-array name="color_blind_list">
+        <item>None</item>
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Green</item>
+    </string-array>
 </resources>

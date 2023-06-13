@@ -14,7 +14,6 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:padding="10dp"
         android:text="@string/dummy_title"
         android:textAlignment="center"
         android:textSize="20sp"
@@ -22,11 +21,11 @@
 
     <ImageView
         android:id="@+id/idIVSlider"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
         android:layout_below="@id/idTVSliderTitle"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:padding="10dp"
         android:src="@drawable/warnapedia_icon_logo" />
 
@@ -37,7 +36,7 @@
         android:justificationMode="inter_word"
         android:layout_below="@id/idIVSlider"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
         android:gravity="center"
         android:padding="10dp"

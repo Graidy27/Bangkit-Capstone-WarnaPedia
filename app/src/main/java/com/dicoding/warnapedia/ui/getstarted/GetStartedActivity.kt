@@ -27,7 +27,7 @@ class GetStartedActivity : AppCompatActivity() {
             SliderData(
                 resources.getString(R.string.color_palette_recomendation),
                 resources.getString(R.string.color_palette_recomendation_desc),
-                R.drawable.baseline_favorite_24
+                R.drawable.get_started_1
             )
         )
 
@@ -35,7 +35,7 @@ class GetStartedActivity : AppCompatActivity() {
             SliderData(
                 resources.getString(R.string.save_color_palette_recomendation),
                 resources.getString(R.string.save_color_palette_recomendation_desc),
-                R.drawable.warnapedia_text_logo
+                R.drawable.get_started_2
             )
         )
 
@@ -43,7 +43,7 @@ class GetStartedActivity : AppCompatActivity() {
             SliderData(
                 resources.getString(R.string.access_saved_color_palette),
                 resources.getString(R.string.access_saved_color_palette_desc),
-                R.drawable.warnapedia_icon_logo
+                R.drawable.get_started_3
             )
         )
 
@@ -51,7 +51,7 @@ class GetStartedActivity : AppCompatActivity() {
             SliderData(
                 resources.getString(R.string.color_blind_feature),
                 resources.getString(R.string.color_blind_feature_desc),
-                R.drawable.baseline_user_icon
+                R.drawable.get_started_4
             )
         )
 

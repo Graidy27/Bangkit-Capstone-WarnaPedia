@@ -11,12 +11,12 @@ interface FavoriteColorPaletteDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insert(favoriteColorPalette: FavoriteColorPalette)
 
-    @Query("DELETE FROM FavoriteColorPalette WHERE color_palette_name = :color_palette")
-    fun delete(color_palette: String)
+    @Query("DELETE FROM FavoriteColorPalette WHERE id = :id")
+    fun delete(id: Int)
 
-    @Query("SELECT * FROM FavoriteColorPalette WHERE color_palette_name = :color_palette")
-    fun getFavoriteColorPaletteByName(color_palette: String): LiveData<FavoriteColorPalette>
+    @Query("SELECT * FROM FavoriteColorPalette WHERE id = :id")
+    fun getFavoriteColorPaletteById(id: Int): LiveData<FavoriteColorPalette>
 
-    @Query("SELECT * FROM FavoriteColorPalette ORDER BY color_palette_name ASC")
+    @Query("SELECT * FROM FavoriteColorPalette ORDER BY id ASC")
     fun getFavoriteColorPalette(): LiveData<List<FavoriteColorPalette>>
 }
