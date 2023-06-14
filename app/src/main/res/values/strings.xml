@@ -53,6 +53,10 @@
     <string name="color_blind_value">None</string>
     <string name="edit_color_palette_name">Edit Color Palette Name</string>
     <string name="setting_color_blind_spinner">Setting Color Blind Spinner</string>
+    <string name="share_button">Share Button</string>
+    <string name="share_layout_image">Share Layout Image</string>
+    <string name="share_design_text">Check out this color palette from Warna Pedia!\n%s\n%s\n%s\n%s</string>
+    <string name="maximum_character">Maximum character is %s</string>
     <string name="FAVORITE">FAVORITE</string>
     <string name="RECOMMENDATION">RECOMMENDATION</string>
     <string name="PROCEED">PROCEED</string>

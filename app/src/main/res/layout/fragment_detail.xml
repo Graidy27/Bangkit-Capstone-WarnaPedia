@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cl_to_image"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -49,6 +50,18 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/b_share_design"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/selector_button_nav"
+                android:layout_marginRight="10dp"
+                android:contentDescription="@string/share_button"
+                android:src="@drawable/baseline_share_24"
+                android:stateListAnimator="@animator/fade_state_list_animator_alpha"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/b_right_example_layout"
+                app:layout_constraintTop_toTopOf="parent" />
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/b_right_example_layout"
                 android:layout_width="40dp"

@@ -1,10 +1,13 @@
 package com.dicoding.warnapedia.ui.detail
 
-import android.content.DialogInterface
+import android.content.Intent
 import android.content.res.ColorStateList
+import android.graphics.Bitmap
+import android.graphics.Canvas
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.*
 import android.widget.EditText
 import android.widget.TextView
@@ -12,6 +15,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.content.FileProvider
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -23,17 +27,21 @@ import com.dicoding.warnapedia.databinding.FragmentDetailBinding
 import com.dicoding.warnapedia.helper.ViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import de.hdodenhof.circleimageview.CircleImageView
+import java.io.File
+import java.io.FileOutputStream
+
 
 class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
 
     private val binding get() = _binding!!
 
-    private var colorPaletteName = ""
-
     private val detailViewModel by activityViewModels<DetailViewModel>{
         ViewModelFactory.getInstance(requireActivity())
     }
+    private lateinit var dialogBuilder: AlertDialog
+    private lateinit var editText: EditText
+    private lateinit var colorPalette: ColorPalette
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,8 +55,10 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val id = DetailFragmentArgs.fromBundle(arguments as Bundle).id
         val colors = DetailFragmentArgs.fromBundle(arguments as Bundle).colors
         val color_palette_name = DetailFragmentArgs.fromBundle(arguments as Bundle).colorPaletteName
+        colorPalette = ColorPalette(id, color_palette_name, colors[0],colors[1],colors[2],colors[3])
         val from_page = DetailFragmentArgs.fromBundle(arguments as Bundle).fromPage
 
         if(activity is AppCompatActivity){
@@ -75,7 +85,7 @@ class DetailFragment : Fragment() {
                 1 -> { loadWebDesign1() }
                 2 -> { loadWebDesign2() }
             }
-            setExampleDesignColor(ColorPalette(0, "color_palette_name",colors[0],colors[1],colors[2],colors[3]))
+            setExampleDesignColor(colorPalette)
         }
 
         binding.bLeftExampleLayout.setOnClickListener{
@@ -91,23 +101,53 @@ class DetailFragment : Fragment() {
                 2 -> { detailViewModel.setCurrentDesign(1) }
             }
         }
+
+        binding.bShareDesign.setOnClickListener {
+            val viewToShare = binding.frameLayoutExampleDesign.findViewById<ConstraintLayout>(R.id.l_example_design)
+            detailViewModel.shareColor(viewToShare, colorPalette)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater){
         inflater.inflate(R.menu.detail_menu, menu)
         val favorite = menu.findItem(R.id.favorite)
         favorite.isChecked = true
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = DetailFragmentArgs.fromBundle(arguments as Bundle).id
-        val colors = DetailFragmentArgs.fromBundle(arguments as Bundle).colors
-        val color_palette_name = DetailFragmentArgs.fromBundle(arguments as Bundle).colorPaletteName
-        val curr_favorite_color_palette = FavoriteColorPalette(id, color_palette_name,colors[0],colors[1],colors[2],colors[3])
         val inflater = requireActivity().layoutInflater
         val dialogView = inflater.inflate(R.layout.dialog_edit_color_palette_name, null)
-        val dialogBuilder = AlertDialog.Builder(requireActivity(), R.style.CustomAlertDialog)
-        val editText = dialogView.findViewById<EditText>(R.id.et_color_palette_name)
-        editText.setText(color_palette_name)
+        editText = dialogView.findViewById(R.id.et_color_palette_name)
+        editText.setText(colorPalette.name)
+        editText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (s?.length?:0 >= detailViewModel.characterMaxLength) {
+                    editText.error = resources.getString(R.string.maximum_character, detailViewModel.characterMaxLength.toString())
+                } else {
+                    editText.error = null
+                }
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        })
+        dialogBuilder = AlertDialog.Builder(requireActivity(), R.style.CustomAlertDialog)
+            .setView(dialogView)
+            .setMessage(resources.getString(R.string.edit_color_palette_name))
+            .setPositiveButton(resources.getString(R.string.PROCEED)) { dialog, _ ->
+                val enteredText = editText.text.toString()
+                detailViewModel.updateFavoriteColorPaletteName(enteredText, colorPalette.id).observe(viewLifecycleOwner) { isSuccess ->
+                    if (isSuccess) {
+                        colorPalette.name = enteredText
+                        (activity as? AppCompatActivity)?.supportActionBar?.title = enteredText
+                        editText.setText(enteredText)
+                    }
+                }
+                dialog.dismiss()
+            }
+            .setNegativeButton(resources.getString(R.string.CANCEL)) { dialog, _ ->
+                dialog.dismiss()
+            }
+            .create()
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val curr_favorite_color_palette = FavoriteColorPalette(colorPalette.id)
         return when (item.itemId) {
             R.id.favorite -> {
                 if (item.isChecked){
@@ -122,22 +162,7 @@ class DetailFragment : Fragment() {
                 true
             }
             R.id.edit -> {
-                dialogBuilder.setView(dialogView)
-                    .setMessage(resources.getString(R.string.edit_color_palette_name))
-                    .setPositiveButton(resources.getString(R.string.PROCEED)) { dialog, _ ->
-                        val enteredText = editText.text.toString()
-                        detailViewModel.updateFavoriteColorPaletteName(enteredText, id).observe(viewLifecycleOwner) { isSuccess ->
-                            if (isSuccess) {
-                                (activity as? AppCompatActivity)?.supportActionBar?.title = enteredText
-                            }
-                        }
-                        dialog.dismiss()
-                    }
-                    .setNegativeButton(resources.getString(R.string.CANCEL)) { dialog, _ ->
-                        dialog.dismiss()
-                    }
-                    .create()
-                    .show()
+                dialogBuilder.show()
                 true
             }
             else -> super.onOptionsItemSelected(item)

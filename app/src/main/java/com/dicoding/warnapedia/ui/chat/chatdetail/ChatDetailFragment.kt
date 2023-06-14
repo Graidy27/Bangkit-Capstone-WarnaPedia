@@ -21,13 +21,14 @@ class ChatDetailFragment : Fragment() {
     private var _binding: FragmentChatDetailBinding? = null
 
     private val binding get() = _binding!!
+    private var connectionStatus = ""
 
     private val chatDetailViewModel by activityViewModels<ChatDetailViewModel>{
         ViewModelFactory.getInstance(requireActivity())
     }
 
     private val checkConnection by lazy {
-        getActivity()?.getApplication()
+        activity?.application
         ?.let { CheckConnection(it) }
     }
 
@@ -58,12 +59,13 @@ class ChatDetailFragment : Fragment() {
             navView?.visibility = View.GONE
         }
 
-        checkConnection?.observe(requireActivity()) {
-            if (it) {
-                (activity as? AppCompatActivity)?.supportActionBar?.subtitle = "Online"
+        checkConnection?.observe(viewLifecycleOwner) {
+            connectionStatus =  if (it) {
+                "Online"
             } else {
-                (activity as? AppCompatActivity)?.supportActionBar?.subtitle = "Offline"
+                "Offline"
             }
+            (activity as? AppCompatActivity)?.supportActionBar?.subtitle = connectionStatus
         }
 
         chatDetailViewModel.listChat.observe(viewLifecycleOwner) { listChat ->
@@ -86,7 +88,7 @@ class ChatDetailFragment : Fragment() {
                 "Warna Pedia is typing..."
             }else {
                 binding.btnSend.isEnabled = true
-                "Online"
+                connectionStatus
             }
         }
 
@@ -97,10 +99,6 @@ class ChatDetailFragment : Fragment() {
                 binding.textMessage.setText("")
                 chatDetailViewModel.getResponse(text, viewLifecycleOwner)
             }
-        }
-
-        chatDetailViewModel.isLoading.observe(viewLifecycleOwner){ boolean ->
-
         }
     }
 
