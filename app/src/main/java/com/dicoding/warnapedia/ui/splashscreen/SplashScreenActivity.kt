@@ -2,10 +2,12 @@ package com.dicoding.warnapedia.ui.splashscreen
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.view.WindowManager
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -27,10 +29,13 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = getColor(R.color.F1C743)
+        }
+
         datastore = this.dataStore
         preference = SettingPreferences.getInstance(datastore)
         getPreferenceSetting()

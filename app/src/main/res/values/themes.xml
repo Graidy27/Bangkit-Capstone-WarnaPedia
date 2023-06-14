@@ -16,13 +16,10 @@
         <item name="windowNoTitle">true</item>
         <item name="fontFamily">@font/montserrat</item>
     </style>
-
     <style name="Theme.WarnaPedia.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
     <style name="Theme.WarnaPedia.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="Theme.WarnaPedia.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

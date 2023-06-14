@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.dicoding.warnapedia.R
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
