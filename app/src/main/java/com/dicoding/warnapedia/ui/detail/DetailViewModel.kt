@@ -59,7 +59,7 @@ class DetailViewModel(application: FragmentActivity) : ViewModel() {
         return resultLiveData
     }
 
-    fun layoutToBitmap(layout: View): Bitmap {
+    private fun layoutToBitmap(layout: View): Bitmap {
         val bitmap = Bitmap.createBitmap(layout.width, layout.height, Bitmap.Config.ARGB_8888)
         val canvas = Canvas(bitmap)
         layout.draw(canvas)

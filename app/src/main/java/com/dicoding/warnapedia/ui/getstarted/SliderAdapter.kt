@@ -31,7 +31,6 @@ class SliderAdapter(
         val imageView: ImageView = view.findViewById(R.id.idIVSlider)
         val sliderHeadingTV: TextView = view.findViewById(R.id.idTVSliderTitle)
         val sliderDescTV: TextView = view.findViewById(R.id.idTVSliderDescription)
-
         val sliderData: SliderData = sliderList[position]
         sliderHeadingTV.text = sliderData.slideTitle
         sliderDescTV.text = sliderData.slideDescription

@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.dicoding.warnapedia.ui.chat.chatdetail.ChatDetailViewModel
 import com.dicoding.warnapedia.ui.detail.DetailViewModel
 import com.dicoding.warnapedia.ui.favorite.FavoriteViewModel
-import com.dicoding.warnapedia.ui.recomendation.RecomendationViewModel
+import com.dicoding.warnapedia.ui.recomendation.RecommendationViewModel
 
 class ViewModelFactory private constructor(private val mApplication: FragmentActivity) : ViewModelProvider.NewInstanceFactory() {
     companion object {
@@ -31,8 +31,8 @@ class ViewModelFactory private constructor(private val mApplication: FragmentAct
         else if (modelClass.isAssignableFrom(DetailViewModel::class.java)){
             return DetailViewModel(mApplication) as T
         }
-        else if (modelClass.isAssignableFrom(RecomendationViewModel::class.java)){
-            return RecomendationViewModel(mApplication) as T
+        else if (modelClass.isAssignableFrom(RecommendationViewModel::class.java)){
+            return RecommendationViewModel(mApplication) as T
         }
         else if (modelClass.isAssignableFrom(ChatDetailViewModel::class.java)){
             return ChatDetailViewModel(mApplication) as T

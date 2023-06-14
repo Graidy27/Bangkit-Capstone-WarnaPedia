@@ -21,21 +21,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.data.ColorPalette
 import com.dicoding.warnapedia.data.localdatabase.FavoriteColorPalette
-import com.dicoding.warnapedia.databinding.FragmentRecomendationBinding
+import com.dicoding.warnapedia.databinding.FragmentRecommendationBinding
 import com.dicoding.warnapedia.helper.ViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlin.math.roundToInt
 
-class RecomendationFragment : Fragment() {
+class RecommendationFragment : Fragment() {
 
-    private lateinit var adapter: RecomendationAdapter
+    private lateinit var adapter: RecommendationAdapter
 
-    private var _binding: FragmentRecomendationBinding? = null
+    private var _binding: FragmentRecommendationBinding? = null
 
     private val binding get() = _binding!!
 
-    private val recomendationViewModel by activityViewModels<RecomendationViewModel>{
+    private val recommendationViewModel by activityViewModels<RecommendationViewModel>{
         ViewModelFactory.getInstance(requireActivity())
     }
 
@@ -44,8 +44,8 @@ class RecomendationFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentRecomendationBinding.inflate(inflater, container, false)
-        adapter = RecomendationAdapter(listOf(), requireActivity())
+        _binding = FragmentRecommendationBinding.inflate(inflater, container, false)
+        adapter = RecommendationAdapter(listOf(), requireActivity())
         binding.rvColorPalette.adapter = adapter
         return binding.root
     }
@@ -73,28 +73,27 @@ class RecomendationFragment : Fragment() {
             navView?.visibility = View.GONE
         }
 
-        recomendationViewModel.listColorPalette.observe(viewLifecycleOwner) { listColorPalette ->
+        recommendationViewModel.listColorPalette.observe(viewLifecycleOwner) { listColorPalette ->
             adapter.updateData(listColorPalette)
-            adapter.notifyDataSetChanged()
             if (listColorPalette.isNotEmpty()){
-                recomendationViewModel.setCurrentColorPalette(listColorPalette[0])
+                recommendationViewModel.setCurrentColorPalette(listColorPalette[0])
             }
         }
 
-        val color_palette = RecomendationFragmentArgs.fromBundle(arguments as Bundle)?.colorPalette
-        recomendationViewModel.loadColorPalette(ArrayList(color_palette?.toList()))
+        val color_palette = RecommendationFragmentArgs.fromBundle(arguments as Bundle)?.colorPalette
+        recommendationViewModel.loadColorPalette(ArrayList(color_palette?.toList()))
 
         val layoutManager = LinearLayoutManager(activity)
         binding.rvColorPalette.layoutManager = layoutManager
         binding.rvColorPalette.setHasFixedSize(true)
 
-        adapter.setOnItemClickCallback(object : RecomendationAdapter.OnItemClickCallback {
+        adapter.setOnItemClickCallback(object : RecommendationAdapter.OnItemClickCallback {
             override fun onItemClick(data: ColorPalette) {
-                recomendationViewModel.setCurrentColorPalette(data)
+                recommendationViewModel.setCurrentColorPalette(data)
             }
         })
 
-        adapter.setOnFavoriteButtonCallback(object : RecomendationAdapter.OnFavoriteButtonClickCallback {
+        adapter.setOnFavoriteButtonCallback(object : RecommendationAdapter.OnFavoriteButtonClickCallback {
             override fun onFavoriteButtonClick(colorPalette: ColorPalette) {
                 val data = FavoriteColorPalette()
                 data.let{
@@ -104,35 +103,35 @@ class RecomendationFragment : Fragment() {
                     it.color3 = colorPalette.color3
                     it.color4 = colorPalette.color4
                 }
-                recomendationViewModel.insertFavorite(data)
+                recommendationViewModel.insertFavorite(data)
             }
         })
 
-        recomendationViewModel.setCurrentDesign(1)
+        recommendationViewModel.setCurrentDesign(1)
 
-        recomendationViewModel.currentDesign.observe(viewLifecycleOwner)  { currentDesign ->
+        recommendationViewModel.currentDesign.observe(viewLifecycleOwner)  { currentDesign ->
             when(currentDesign) {
                 1 -> { loadWebDesign1() }
                 2 -> { loadWebDesign2() }
             }
-            setExampleDesignColor(recomendationViewModel.getCurrentColorPalette())
+            setExampleDesignColor(recommendationViewModel.getCurrentColorPalette())
         }
 
-        recomendationViewModel.currentColorPalette.observe(viewLifecycleOwner) { colorPalette ->
+        recommendationViewModel.currentColorPalette.observe(viewLifecycleOwner) { colorPalette ->
             setExampleDesignColor(colorPalette)
         }
 
         binding.bLeftExampleLayout.setOnClickListener{
-            when(recomendationViewModel.getCurrentDesign()) {
-                1 -> { recomendationViewModel.setCurrentDesign(2) }
-                2 -> { recomendationViewModel.setCurrentDesign(1) }
+            when(recommendationViewModel.getCurrentDesign()) {
+                1 -> { recommendationViewModel.setCurrentDesign(2) }
+                2 -> { recommendationViewModel.setCurrentDesign(1) }
             }
         }
 
         binding.bRightExampleLayout.setOnClickListener{
-            when(recomendationViewModel.getCurrentDesign()) {
-                1 -> { recomendationViewModel.setCurrentDesign(2) }
-                2 -> { recomendationViewModel.setCurrentDesign(1) }
+            when(recommendationViewModel.getCurrentDesign()) {
+                1 -> { recommendationViewModel.setCurrentDesign(2) }
+                2 -> { recommendationViewModel.setCurrentDesign(1) }
             }
         }
     }
@@ -153,7 +152,7 @@ class RecomendationFragment : Fragment() {
     }
 
     fun setExampleDesignColor(colorStr: ColorPalette){
-        when(recomendationViewModel.getCurrentDesign()){
+        when(recommendationViewModel.getCurrentDesign()){
             1 -> setExampleDesign1Color(colorStr)
             2 -> setExampleDesign2Color(colorStr)
         }
@@ -200,15 +199,8 @@ class RecomendationFragment : Fragment() {
         binding.frameLayoutExampleDesign.findViewById<CircleImageView>(R.id.comp4).borderColor = toColor(colorStr.color4, defaultColor)
     }
 
-    val Int.dp: Int
+    private val Int.dp: Int
         get() = (this * Resources.getSystem().displayMetrics.density).roundToInt()
-
-    val Float.dp: Int
-        get() = (this * Resources.getSystem().displayMetrics.density).roundToInt()
-
-    override fun onResume() {
-        super.onResume()
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

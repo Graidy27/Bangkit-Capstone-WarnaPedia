@@ -26,9 +26,9 @@
 
     <fragment
         android:id="@+id/navigation_recomendation"
-        android:name="com.dicoding.warnapedia.ui.recomendation.RecomendationFragment"
+        android:name="com.dicoding.warnapedia.ui.recomendation.RecommendationFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_recomendation" >
+        tools:layout="@layout/fragment_recommendation" >
         <action
             android:id="@+id/action_navigation_recomendation_to_detailFragment"
             app:destination="@id/detailFragment" />

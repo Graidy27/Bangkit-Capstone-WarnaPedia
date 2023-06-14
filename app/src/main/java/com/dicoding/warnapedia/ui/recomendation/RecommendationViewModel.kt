@@ -8,7 +8,7 @@ import com.dicoding.warnapedia.data.ColorPalette
 import com.dicoding.warnapedia.data.localdatabase.FavoriteColorPalette
 import com.dicoding.warnapedia.repository.FavoriteColorPaletteRepository
 
-class RecomendationViewModel(application: FragmentActivity) : ViewModel() {
+class RecommendationViewModel(application: FragmentActivity) : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is notifications Fragment"

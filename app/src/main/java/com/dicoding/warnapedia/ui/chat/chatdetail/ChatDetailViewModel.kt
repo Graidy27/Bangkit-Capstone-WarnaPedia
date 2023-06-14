@@ -28,12 +28,7 @@ class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
     private val _isNewData = MutableLiveData<Boolean>()
     val isNewData: LiveData<Boolean> = _isNewData
 
-//    private val _isError = MutableLiveData<Boolean>()
-//    val isError: LiveData<Boolean> = _isError
-
     private val mChatsRepository: ChatsRepository = ChatsRepository(application)
-
-    private var example_index = 1
 
     fun addChat(str: String){
         val currentList = _listChat.value?.toMutableList() ?: mutableListOf()
@@ -61,24 +56,17 @@ class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
             _isNewData.value = true
             _isLoading.value = false
         }
-//        currentList.add(ExampleChatData.listData[example_index])
-//        insertChat(ExampleChatData.listData[example_index], false)
-//        if (example_index >= 4){
-//            example_index = 1
-//        }else {
-//            example_index += 1
-//        }
-//        _listChat.value = currentList
     }
 
-    fun insertChat(chat: Chat) {
+    private fun insertChat(chat: Chat) {
         mChatsRepository.insert(Chats(_listChat.value?.size ?: 0, chat.type, chat.message, chat.colorPalette))
     }
 
     fun deleteChat() {
-//        example_index = 1
-        mChatsRepository.delete()
-        addFirstChat()
+        if (_isLoading.value == false){
+            mChatsRepository.delete()
+            addFirstChat()
+        }
     }
 
     fun loadChat(viewLifecycleOwner: LifecycleOwner){
@@ -98,15 +86,15 @@ class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
         }
     }
 
-    fun addFirstChat(){
+    private fun addFirstChat(){
         val strArray = context.resources.getStringArray(R.array.default_first_chat)
-        val randomNumber = Random.nextInt(0, 4)
+        val randomNumber = Random.nextInt(0, 5)
         val chat = Chat(1, strArray[randomNumber], null)
         mChatsRepository.insert(Chats(0, chat.type, chat.message, chat.colorPalette))
         _listChat.value = listOf(chat)
     }
 
-    fun formatedUserChat(str: String): Chat {
+    private fun formatedUserChat(str: String): Chat {
         val new_chat = Chat()
         new_chat.type = 0
         new_chat.colorPalette = null
