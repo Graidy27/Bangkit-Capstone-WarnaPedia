@@ -3,6 +3,8 @@ package com.dicoding.warnapedia.ui.favorite
 import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -57,8 +59,6 @@ class FavoriteFragment : Fragment() {
             val navView = mainActivity?.findViewById<BottomNavigationView>(R.id.nav_view)
             if (navView?.visibility == View.GONE) navView?.visibility = View.VISIBLE
         }
-
-
 
         favoriteViewModel.listColorPalette.observe(viewLifecycleOwner) { listColorPalette ->
             adapter.updateData(listColorPalette)

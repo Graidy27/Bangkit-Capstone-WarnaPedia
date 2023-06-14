@@ -31,7 +31,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:gravity="center_vertical"
-            android:justificationMode="inter_word"
             android:textColor="@color/black"
             android:textSize="17sp"
             card_view:layout_constraintStart_toEndOf="@+id/user_icon"
