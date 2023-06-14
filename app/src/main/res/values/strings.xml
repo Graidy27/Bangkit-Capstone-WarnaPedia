@@ -68,8 +68,9 @@
 
     <string-array name="color_blind_list">
         <item>None</item>
-        <item>Red</item>
-        <item>Blue</item>
-        <item>Green</item>
+        <item>Deuteranomaly (red-weak)</item>
+        <item>Protanomaly (green-weak)</item>
+        <item>Deuteranopia (green-blind)</item>
+        <item>Tritanomaly (blue-weak)</item>
     </string-array>
 </resources>

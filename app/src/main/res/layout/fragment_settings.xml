@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_rectangle_40dp"
         android:backgroundTint="@color/EDEEF0"
-        app:layout_constraintWidth_percent="0.8"
+        app:layout_constraintWidth_percent="0.9"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,19 +50,20 @@
             android:layout_height="wrap_content"
             android:text="@string/color_blind"
             android:textSize="20sp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="30dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
             android:id="@+id/spinner_color_blind_value"
+            style="@style/SpinnerTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            style="@style/SpinnerTextStyle"
             android:contentDescription="@string/setting_color_blind_spinner"
             android:spinnerMode="dialog"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_color_blind"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/tv_color_blind" />
 
         <TextView
             android:id="@+id/tv_version"
@@ -71,7 +72,7 @@
             android:text="@string/version"
             android:layout_marginTop="20dp"
             android:textSize="20sp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="30dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_color_blind" />
 
@@ -79,10 +80,10 @@
             android:id="@+id/tv_version_value"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/version_value"
-
-            android:textSize="20sp"
             android:layout_marginRight="50dp"
+            android:text="@string/version_value"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_version"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/tv_version" />
 

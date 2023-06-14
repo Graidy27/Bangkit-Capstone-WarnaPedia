@@ -59,16 +59,10 @@ class SettingsFragment : Fragment() {
             if (navView?.visibility == View.GONE) navView?.visibility = View.VISIBLE
         }
 
-        ArrayAdapter.createFromResource(
-            requireContext(),
-            R.array.color_blind_list,
-            R.layout.item_spinner_color_blind
-        ).also { adapter ->
-            // Specify the layout to use when the list of choices appears
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            // Apply the adapter to the spinner
-            binding.spinnerColorBlindValue.adapter = adapter
-        }
+        val colorBlindList = resources.getStringArray(R.array.color_blind_list)
+        val adapter = CustomSpinnerAdapter(requireContext(), R.layout.item_spinner_color_blind, colorBlindList)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinnerColorBlindValue.adapter = adapter
 
         var first_spinner_counter = 0
         binding.spinnerColorBlindValue.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
