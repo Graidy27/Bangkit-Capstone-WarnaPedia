@@ -59,8 +59,10 @@ def rgb2hsv(r, g, b):
 
 
 # input r g b
-def generateMonochrome(r, g, b):
-    (h, s, v) = rgb2hsv(r, g, b)
+def generateMonochrome(r, g, b, isHSV):
+    if(isHSV == 0): (h, s, v) = rgb2hsv(r, g, b)
+    else: (h, s, v) = (r, g, b)
+    
     if (s + v > 100 and v):  # not grayscale
         # print("Not Grayscale")
         if (s >= 0 and s <= 20):

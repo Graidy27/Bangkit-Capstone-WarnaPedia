@@ -1,6 +1,6 @@
 from flask import *
 import os
-from checkChat import checkString
+from checkChat import checkString, colorBlind
 import time
 import json
 
@@ -23,9 +23,11 @@ def home_page():
 def request_page():
     data = request.get_json()
     string = data.get('string')  # /chat/?string=""
-    colorblind = data.get('colorblind')
-    print(colorblind)
-    data_set = checkString(string)
+    blindType = data.get('colorblind')
+    if(blindType != '0'):
+        data_set = colorBlind(string, blindType)
+    else:
+        data_set = checkString(string)
 
     json_dump = json.dumps(data_set)
 
