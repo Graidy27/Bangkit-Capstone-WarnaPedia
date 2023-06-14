@@ -53,7 +53,7 @@ class ChatDetailFragment : Fragment() {
         if(activity is AppCompatActivity){
             val mainActivity = (activity as? AppCompatActivity)
             mainActivity?.setSupportActionBar(binding.toolbar)
-            mainActivity?.supportActionBar?.title = "Warna Pedia"
+            mainActivity?.supportActionBar?.title = resources.getString(R.string.app_name)
             mainActivity?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
             val navView = mainActivity?.findViewById<BottomNavigationView>(R.id.nav_view)
             navView?.visibility = View.GONE

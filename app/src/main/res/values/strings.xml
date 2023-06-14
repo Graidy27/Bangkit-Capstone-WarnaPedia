@@ -47,6 +47,7 @@
     <string name="access_saved_color_palette_desc">Buka menu favorit untuk mengakses palet warna pilihan Anda</string>
     <string name="color_blind_feature">Fitur Buta Warna</string>
     <string name="color_blind_feature_desc">Jika Anda memiliki buta warna, Anda dapat memilih warna yang tidak dapat Anda lihat</string>
+    <string name="palette_recommendation">Rekomendasi Palet</string>
     <string name="version">Versi</string>
     <string name="version_value">1.0</string>
     <string name="color_blind">Buta Warna</string>
@@ -67,8 +68,8 @@
     <string name="YES">YA</string>
     <string name="NO">TIDAK</string>
     <string name="SKIP">LEWATI</string>
-
     <string name="GET_STARTED">MULAI</string>
+
     <string-array name="color_blind_list">
         <item>Tidak Buta Warna</item>
         <item>Deuteranomaly (lemah warna merah)</item>
@@ -123,6 +124,7 @@
 <!--    <string name="access_saved_color_palette_desc">Go to the favorite menu to access your preferred color palette</string>-->
 <!--    <string name="color_blind_feature">Color Blind Feature</string>-->
 <!--    <string name="color_blind_feature_desc">If you have a color blind, you can choose which color you can\'t see</string>-->
+<!--    <string name="palette_recommendation">Palette Recommendation</string>-->
 <!--    <string name="version">Version</string>-->
 <!--    <string name="version_value">1.0</string>-->
 <!--    <string name="color_blind">Color Blind</string>-->

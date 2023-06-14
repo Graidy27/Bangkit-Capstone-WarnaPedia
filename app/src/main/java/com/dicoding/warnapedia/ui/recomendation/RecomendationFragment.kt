@@ -67,7 +67,7 @@ class RecomendationFragment : Fragment() {
         if(activity is AppCompatActivity){
             val mainActivity = (activity as? AppCompatActivity)
             mainActivity?.setSupportActionBar(binding.toolbar)
-            mainActivity?.supportActionBar?.title = "Palette Recomendation"
+            mainActivity?.supportActionBar?.title = resources.getString(R.string.palette_recommendation)
             mainActivity?.supportActionBar?.setDisplayHomeAsUpEnabled(true)
             val navView = mainActivity?.findViewById<BottomNavigationView>(R.id.nav_view)
             navView?.visibility = View.GONE

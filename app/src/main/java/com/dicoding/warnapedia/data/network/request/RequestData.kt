@@ -6,6 +6,6 @@ data class RequestData(
     @SerializedName("string")
     val string: String,
 
-//    @SerializedName("colorblind")
-//    val colorblind: String
+    @SerializedName("colorblind")
+    val colorblind: String
 )

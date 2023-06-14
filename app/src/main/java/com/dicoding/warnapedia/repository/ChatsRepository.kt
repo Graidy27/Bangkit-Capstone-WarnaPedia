@@ -36,7 +36,7 @@ class ChatsRepository(application: FragmentActivity) {
 
     fun postChat(string: String): LiveData<Chat> {
         val result = MediatorLiveData<Chat>()
-        val client = ApiConfig.getApiService().postString(RequestData(string))
+        val client = ApiConfig.getApiService().postString(RequestData(string, "0"))
         client.enqueue(object : Callback<ResponseData> {
             override fun onResponse(
                 call: Call<ResponseData>,
