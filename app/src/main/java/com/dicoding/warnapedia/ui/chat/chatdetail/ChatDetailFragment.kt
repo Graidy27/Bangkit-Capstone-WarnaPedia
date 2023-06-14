@@ -1,24 +1,33 @@
 package com.dicoding.warnapedia.ui.chat.chatdetail
 
-import android.content.DialogInterface
+import android.content.Context
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.databinding.FragmentChatDetailBinding
 import com.dicoding.warnapedia.helper.CheckConnection
+import com.dicoding.warnapedia.helper.SettingPreferences
 import com.dicoding.warnapedia.helper.ViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.launch
 
 class ChatDetailFragment : Fragment() {
 
     private lateinit var adapter: ChatDetailAdapter
-
     private var _binding: FragmentChatDetailBinding? = null
+    private lateinit var preference: SettingPreferences
+    private lateinit var datastore: DataStore<Preferences>
+    private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "config")
+    private var isColorBlind = 0
 
     private val binding get() = _binding!!
     private var connectionStatus = ""
@@ -49,6 +58,13 @@ class ChatDetailFragment : Fragment() {
         val layoutManager = LinearLayoutManager(activity)
         binding.rvChat.layoutManager = layoutManager
         binding.rvChat.setHasFixedSize(true)
+        datastore = requireContext().dataStore
+        preference = SettingPreferences.getInstance(datastore)
+        lifecycleScope.launch {
+            preference.getIsColorBlind().collect { number ->
+                isColorBlind = number
+            }
+        }
 
         if(activity is AppCompatActivity){
             val mainActivity = (activity as? AppCompatActivity)
@@ -97,7 +113,7 @@ class ChatDetailFragment : Fragment() {
             if (!text.isNullOrEmpty()){
                 chatDetailViewModel.addChat(text)
                 binding.textMessage.setText("")
-                chatDetailViewModel.getResponse(text, viewLifecycleOwner)
+                chatDetailViewModel.getResponse(text, isColorBlind, viewLifecycleOwner)
             }
         }
     }

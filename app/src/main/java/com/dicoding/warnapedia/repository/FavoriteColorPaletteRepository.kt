@@ -17,7 +17,6 @@ class FavoriteColorPaletteRepository(application: FragmentActivity) {
         val db = LocalRoomDatabase.getDatabase(application)
         mFavoriteColorPaletteDao = db.favoriteColorPaletteDao()
     }
-    fun getFavoriteColorPaletteById(id: Int): LiveData<FavoriteColorPalette> = mFavoriteColorPaletteDao.getFavoriteColorPaletteById(id)
     fun getFavoriteColorPalette(): LiveData<List<FavoriteColorPalette>> = mFavoriteColorPaletteDao.getFavoriteColorPalette()
     fun updateFavoriteColorPaletteName(new_name: String, id: Int): Future<Int> {
         return executorService.submit( Callable {

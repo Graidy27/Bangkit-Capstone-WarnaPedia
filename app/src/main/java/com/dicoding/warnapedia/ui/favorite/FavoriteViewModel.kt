@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.dicoding.warnapedia.data.ColorPalette
-import com.dicoding.warnapedia.data.localdatabase.FavoriteColorPalette
 import com.dicoding.warnapedia.repository.FavoriteColorPaletteRepository
 
 class FavoriteViewModel(application: FragmentActivity) : ViewModel() {

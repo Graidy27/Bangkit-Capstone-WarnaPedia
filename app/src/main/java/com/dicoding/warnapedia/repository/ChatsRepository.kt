@@ -34,9 +34,9 @@ class ChatsRepository(application: FragmentActivity) {
         executorService.execute { mChatsDao.delete() }
     }
 
-    fun postChat(string: String): LiveData<Chat> {
+    fun postChat(string: String, isColorBlind: Int): LiveData<Chat> {
         val result = MediatorLiveData<Chat>()
-        val client = ApiConfig.getApiService().postString(RequestData(string, "0"))
+        val client = ApiConfig.getApiService().postString(RequestData(string, isColorBlind.toString()))
         client.enqueue(object : Callback<ResponseData> {
             override fun onResponse(
                 call: Call<ResponseData>,

@@ -42,10 +42,6 @@ class RecomendationViewModel(application: FragmentActivity) : ViewModel() {
         mFavoriteColorPaletteRepository.insert(colorPalette)
     }
 
-    fun deleteFavorite(colorPalette: FavoriteColorPalette) {
-        mFavoriteColorPaletteRepository.delete(colorPalette)
-    }
-
     fun loadColorPalette(list_color_palette: ArrayList<ColorPalette>){
         val formattedObjectList = list_color_palette.map {
             ColorPalette(

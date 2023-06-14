@@ -9,6 +9,7 @@ import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.data.Chat
 import com.dicoding.warnapedia.data.localdatabase.Chats
 import com.dicoding.warnapedia.repository.ChatsRepository
+import kotlin.random.Random
 
 class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
 
@@ -49,10 +50,10 @@ class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
         _isNewData.value = boolean
     }
 
-    fun getResponse(str: String, viewLifecycleOwner: LifecycleOwner){
+    fun getResponse(str: String, isColorBlind: Int, viewLifecycleOwner: LifecycleOwner){
         val currentList = _listChat.value?.toMutableList() ?: mutableListOf()
         _isLoading.value = true
-        mChatsRepository.postChat(str).observe(viewLifecycleOwner) { response ->
+        mChatsRepository.postChat(str, isColorBlind).observe(viewLifecycleOwner) { response ->
             response.let {
                 currentList.add(it)
                 insertChat(it)
@@ -98,7 +99,9 @@ class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
     }
 
     fun addFirstChat(){
-        val chat = Chat(1, context.resources.getString(R.string.default_first_chat), null)
+        val strArray = context.resources.getStringArray(R.array.default_first_chat)
+        val randomNumber = Random.nextInt(0, 4)
+        val chat = Chat(1, strArray[randomNumber], null)
         mChatsRepository.insert(Chats(0, chat.type, chat.message, chat.colorPalette))
         _listChat.value = listOf(chat)
     }

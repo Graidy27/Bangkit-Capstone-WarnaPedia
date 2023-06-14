@@ -53,7 +53,8 @@ class FavoriteAdapter(
             viewHolder.itemView.layoutParams = itemLayoutParams
         }
         val (id, color_palette_name, color_one, color_two, color_three, color_four) = listColorPalette[position]
-        Log.d("ID", id.toString())
+        println(color_one)
+
         viewHolder.binding.tvColorPaletteName.text = color_palette_name
         viewHolder.binding.clBackgroundLayout.setBackgroundColor(Color.parseColor(color_one))
         viewHolder.binding.colorTwo.setBackgroundColor(Color.parseColor(color_two))

@@ -38,7 +38,13 @@
     <string name="long_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies mi vel scelerisque ullamcorper. Integer nec efficitur orci, vel commodo massa. Nullam eget congue ante. Nulla nunc nisl, dapibus a semper eu, rutrum ut purus. Morbi semper, massa eu mattis fringilla, orci eros imperdiet sem, in ultrices diam purus feugiat ex. Etiam eget rhoncus mi. Vivamus vitae turpis condimentum, commodo ligula vitae, rhoncus justo. Fusce eu felis ante.</string>
     <string name="medium_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies mi vel scelerisque ullamcorper. Integer nec efficitur orci, vel commodo massa. Nullam eget congue ante. Nulla nunc nisl, dapibus a semper eu, rutrum ut purus.</string>
     <string name="short_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ultricies mi vel scelerisque ullamcorper.</string>
-    <string name="default_first_chat">Apa yang ingin Anda buat hari ini?</string>
+    <string-array name="default_first_chat">
+        <item>Apa yang ingin Anda buat hari ini?\n\nTips: Anda bisa meminta palet warna menggunakan kode hexadecimal\nContoh #FFFFFF (pastikan menggunakan tanda pagar ya!)</item>
+        <item>Apa yang ingin Anda buat hari ini?\n\nTips: Anda dapat mengaktifkan fitur bantuan buta warna lewat pengaturan</item>
+        <item>Apa yang ingin Anda buat hari ini?\n\nTips: Selain menekan lambang mata, Anda dapat tekan tahan pada palet warna untuk melihat detail warna</item>
+        <item>Apa yang ingin Anda buat hari ini?\n\nTips: Pada halaman detail warna, Anda dapat tekan tahan pada warna yang anda sukai untuk menyalin kode hexanya loh!</item>
+        <item>Apa yang ingin Anda buat hari ini?\n\nTips: Jika anda mengalami kesulitan dalam mengoperasikan aplikasi ini, anda dapat menekan lambang tanda tanya (\'?\') pada halaman utama untuk mendapatkan petunjuk!</item>
+    </string-array>
     <string name="color_palette_recomendation">Rekomendasi Palet Warna</string>
     <string name="color_palette_recomendation_desc">Anda dapat meminta palet warna dengan hanya mengetik pada kotak teks</string>
     <string name="save_color_palette_recomendation">Simpan Rekomendasi Palet Warna</string>
@@ -59,8 +65,11 @@
     <string name="share_design_text">Lihat palet warna ini dari Warna Pedia!\n%s\n%s\n%s\n%s</string>
     <string name="maximum_character">Karakter maksimum adalah %s</string>
     <string name="warna_pedia_is_typing">Warna Pedia mengetik...</string>
+    <string name="copied_color">Warna %s</string>
+    <string name="color_copied_to_clipboard">%s tersalin</string>
     <string name="online">Aktif</string>
     <string name="offline">Inaktif</string>
+    <string name="layout_image">gambar.png</string>
     <string name="FAVORITE">FAVORIT</string>
     <string name="RECOMMENDATION">REKOMENDASI</string>
     <string name="PROCEED">LANJUTKAN</string>
@@ -69,7 +78,6 @@
     <string name="NO">TIDAK</string>
     <string name="SKIP">LEWATI</string>
     <string name="GET_STARTED">MULAI</string>
-
     <string-array name="color_blind_list">
         <item>Tidak Buta Warna</item>
         <item>Deuteranomaly (lemah warna merah)</item>
@@ -136,6 +144,8 @@
 <!--    <string name="share_design_text">Check out this color palette from Warna Pedia!\n%s\n%s\n%s\n%s</string>-->
 <!--    <string name="maximum_character">Maximum character is %s</string>-->
 <!--    <string name="warna_pedia_is_typing">Warna Pedia is typing...</string>-->
+<!--    <string name="copied_color">Copied Color</string>-->
+<!--    <string name="color_copied_to_clipboard">Color Copied To Clipboard</string>-->
 <!--    <string name="online">Aktif</string>-->
 <!--    <string name="offline">Inaktif</string>-->
 <!--    <string name="FAVORITE">FAVORITE</string>-->

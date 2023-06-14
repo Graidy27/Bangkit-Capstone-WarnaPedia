@@ -4,7 +4,6 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.view.View
-import androidx.core.content.ContextCompat.startActivity
 import androidx.core.content.FileProvider
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.LiveData
@@ -28,7 +27,7 @@ class DetailViewModel(application: FragmentActivity) : ViewModel() {
     var characterMaxLength = 20
 
     fun getCurrentDesign(): Int{
-        return _currentDesign.value ?: 0
+        return _currentDesign.value ?: 1
     }
     fun setCurrentDesign(int: Int){
         _currentDesign.value = int
@@ -69,8 +68,7 @@ class DetailViewModel(application: FragmentActivity) : ViewModel() {
 
     fun shareColor(layout: View, colors: ColorPalette){
         val bitmap = layoutToBitmap(layout)
-
-        val file = File(context?.cacheDir, "layout_image.png")
+        val file = File(context?.cacheDir, context.resources.getString(R.string.layout_image))
         val outputStream = FileOutputStream(file)
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
         outputStream.flush()

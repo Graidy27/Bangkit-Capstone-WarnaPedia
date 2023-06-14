@@ -1,22 +1,21 @@
 package com.dicoding.warnapedia.ui.detail
 
-import android.content.Intent
 import android.content.res.ColorStateList
-import android.graphics.Bitmap
-import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
+import android.view.View.VISIBLE
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.content.FileProvider
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -28,8 +27,6 @@ import com.dicoding.warnapedia.databinding.FragmentDetailBinding
 import com.dicoding.warnapedia.helper.ViewModelFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import de.hdodenhof.circleimageview.CircleImageView
-import java.io.File
-import java.io.FileOutputStream
 
 
 class DetailFragment : Fragment() {
@@ -148,7 +145,14 @@ class DetailFragment : Fragment() {
             .create()
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val curr_favorite_color_palette = FavoriteColorPalette(colorPalette.id)
+        val curr_favorite_color_palette = FavoriteColorPalette(
+            colorPalette.id,
+            colorPalette.name,
+            colorPalette.color1,
+            colorPalette.color2,
+            colorPalette.color3,
+            colorPalette.color4,
+        )
         return when (item.itemId) {
             R.id.favorite -> {
                 if (item.isChecked){
@@ -216,6 +220,35 @@ class DetailFragment : Fragment() {
         }
         binding.frameLayoutExampleDesign.findViewById<View>(R.id.comp1_6).background = backgroundDrawable
         binding.frameLayoutExampleDesign.findViewById<View>(R.id.comp1_7).background = backgroundDrawable
+
+        viewVisible()
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.tv_color_1).text = colorStr.color1
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.tv_color_2).text = colorStr.color2
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.tv_color_3).text = colorStr.color3
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.tv_color_4).text = colorStr.color4
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.color_1).background = GradientDrawable().apply {
+            setColor(toColor(colorStr.color1, defaultColor))
+        }
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.color_2).background = GradientDrawable().apply {
+            setColor(toColor(colorStr.color2, defaultColor))
+        }
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.color_3).background = GradientDrawable().apply {
+            setColor(toColor(colorStr.color3, defaultColor))
+        }
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.color_4).background = GradientDrawable().apply {
+            setColor(toColor(colorStr.color4, defaultColor))
+        }
+    }
+
+    fun viewVisible(){
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.color_1).visibility = VISIBLE
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.color_2).visibility = VISIBLE
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.color_3).visibility = VISIBLE
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.color_4).visibility = VISIBLE
+        binding.frameLayoutExampleDesign.findViewById<LinearLayoutCompat>(R.id.ll_color_1).visibility = VISIBLE
+        binding.frameLayoutExampleDesign.findViewById<LinearLayoutCompat>(R.id.ll_color_2).visibility = VISIBLE
+        binding.frameLayoutExampleDesign.findViewById<LinearLayoutCompat>(R.id.ll_color_3).visibility = VISIBLE
+        binding.frameLayoutExampleDesign.findViewById<LinearLayoutCompat>(R.id.ll_color_4).visibility = VISIBLE
     }
 
     fun setExampleDesign2Color(colorStr: ColorPalette){
@@ -234,5 +267,23 @@ class DetailFragment : Fragment() {
         binding.frameLayoutExampleDesign.findViewById<View>(R.id.comp3_9).setBackgroundColor(toColor(colorStr.color3, defaultColor))
         binding.frameLayoutExampleDesign.findViewById<ConstraintLayout>(R.id.l_example_design).setBackgroundColor(toColor(colorStr.color3, defaultColor))
         binding.frameLayoutExampleDesign.findViewById<CircleImageView>(R.id.comp4).borderColor = toColor(colorStr.color4, defaultColor)
+
+        viewVisible()
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.tv_color_1).text = colorStr.color1
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.tv_color_2).text = colorStr.color2
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.tv_color_3).text = colorStr.color3
+        binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.tv_color_4).text = colorStr.color4
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.color_1).background = GradientDrawable().apply {
+            setColor(toColor(colorStr.color1, defaultColor))
+        }
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.color_2).background = GradientDrawable().apply {
+            setColor(toColor(colorStr.color2, defaultColor))
+        }
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.color_3).background = GradientDrawable().apply {
+            setColor(toColor(colorStr.color3, defaultColor))
+        }
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.color_4).background = GradientDrawable().apply {
+            setColor(toColor(colorStr.color4, defaultColor))
+        }
     }
 }

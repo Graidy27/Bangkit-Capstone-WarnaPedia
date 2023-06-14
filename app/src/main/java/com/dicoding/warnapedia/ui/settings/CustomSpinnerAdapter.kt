@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
-import com.dicoding.warnapedia.R
 
 class CustomSpinnerAdapter(context: Context, resource: Int, objects: Array<out Any>) :
     ArrayAdapter<Any>(context, resource, objects) {

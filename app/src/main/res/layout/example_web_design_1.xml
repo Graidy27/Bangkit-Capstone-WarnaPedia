@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/l_example_design"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/example_design_height"
+    android:layout_height="@dimen/example_design_container_height"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
@@ -80,7 +80,7 @@
         android:id="@+id/comp4"
         style="@style/RectangleLight"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="@dimen/example_design_height"
         android:background="@drawable/left_rounded_rectangle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -136,5 +136,141 @@
         app:layout_constraintEnd_toEndOf="@+id/comp3"
         app:layout_constraintStart_toStartOf="@+id/comp3"
         app:layout_constraintTop_toTopOf="@+id/comp3" />
+
+    <View
+        android:id="@+id/color_1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/example_design_nav"
+        android:background="@color/teal_200"
+        android:text="@string/login"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.25"
+        android:visibility="gone"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_color_1"
+        android:layout_width="0dp"
+        android:layout_height="15dp"
+        android:layout_gravity="bottom"
+        android:alpha="0.7"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintTop_toTopOf="@+id/color_1"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_color_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/example_color"
+            android:textColor="@color/black"
+            android:textSize="10sp"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <View
+        android:id="@+id/color_2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/example_design_nav"
+        android:background="@color/F5F5F5"
+        android:text="@string/login"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/color_1"
+        app:layout_constraintWidth_percent="0.25"
+        android:visibility="gone"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_color_2"
+        android:layout_width="0dp"
+        android:layout_height="15dp"
+        android:layout_gravity="bottom"
+        android:alpha="0.7"
+        android:background="@color/F5F5F5"
+        app:layout_constraintStart_toEndOf="@id/ll_color_1"
+        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintTop_toTopOf="@+id/color_2"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_color_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/example_color"
+            android:textColor="@color/black"
+            android:textSize="10sp"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <View
+        android:id="@+id/color_3"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/example_design_nav"
+        android:background="@color/D8D8D8"
+        android:text="@string/login"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintWidth_percent="0.25"
+        android:visibility="gone"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_color_3"
+        android:layout_width="0dp"
+        android:layout_height="15dp"
+        android:layout_gravity="bottom"
+        android:alpha="0.7"
+        android:background="@color/F5F5F5"
+        app:layout_constraintStart_toEndOf="@id/ll_color_2"
+        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintTop_toTopOf="@+id/color_3"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_color_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/example_color"
+            android:textColor="@color/black"
+            android:textSize="10sp"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <View
+        android:id="@+id/color_4"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/example_design_nav"
+        android:background="@color/F1C743"
+        android:text="@string/login"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/color_3"
+        app:layout_constraintWidth_percent="0.25"
+        android:visibility="gone"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/ll_color_4"
+        android:layout_width="0dp"
+        android:layout_height="15dp"
+        android:layout_gravity="bottom"
+        android:alpha="0.7"
+        android:background="@color/F5F5F5"
+        app:layout_constraintStart_toEndOf="@id/ll_color_3"
+        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintTop_toTopOf="@+id/color_4"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_color_4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/example_color"
+            android:textColor="@color/black"
+            android:textSize="10sp"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
