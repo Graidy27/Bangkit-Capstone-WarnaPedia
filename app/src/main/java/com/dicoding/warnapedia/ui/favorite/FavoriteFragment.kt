@@ -141,13 +141,21 @@ class FavoriteFragment : Fragment() {
         ViewCompat.setBackgroundTintList(binding.frameLayoutExampleDesign.findViewById(R.id.comp1_3), ColorStateList.valueOf(toColor(colorStr.color1, defaultColor)))
         ViewCompat.setBackgroundTintList(binding.frameLayoutExampleDesign.findViewById(R.id.comp1_4), ColorStateList.valueOf(toColor(colorStr.color1, defaultColor)))
         binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp1_5).setTextColor(toColor(colorStr.color1, defaultColor))
-        ViewCompat.setBackgroundTintList(binding.frameLayoutExampleDesign.findViewById(R.id.comp1_6), ColorStateList.valueOf(toColor(colorStr.color1, defaultColor)))
-        ViewCompat.setBackgroundTintList(binding.frameLayoutExampleDesign.findViewById(R.id.comp1_7), ColorStateList.valueOf(toColor(colorStr.color1, defaultColor)))
         binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp1_8).setTextColor(toColor(colorStr.color1, defaultColor))
         binding.frameLayoutExampleDesign.findViewById<TextView>(R.id.comp2).setTextColor(toColor(colorStr.color2, defaultColor))
         ViewCompat.setBackgroundTintList(binding.frameLayoutExampleDesign.findViewById(R.id.comp3), ColorStateList.valueOf(toColor(colorStr.color3, defaultColor)))
         binding.frameLayoutExampleDesign.findViewById<ConstraintLayout>(R.id.l_example_design).setBackgroundColor(toColor(colorStr.color3, defaultColor))
         ViewCompat.setBackgroundTintList(binding.frameLayoutExampleDesign.findViewById(R.id.comp4), ColorStateList.valueOf(toColor(colorStr.color4, defaultColor)))
+        val strokeWidth = resources.getDimensionPixelSize(R.dimen.stroke_example_design)
+        val strokeColor = toColor(colorStr.color3, defaultColor)
+        val backgroundDrawable = GradientDrawable().apply {
+            shape = GradientDrawable.RECTANGLE
+            cornerRadius = resources.getDimensionPixelSize(R.dimen.corner_radius_example_design).toFloat()
+            setStroke(strokeWidth, strokeColor)
+            setColor(toColor(colorStr.color1, defaultColor))
+        }
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.comp1_6).background = backgroundDrawable
+        binding.frameLayoutExampleDesign.findViewById<View>(R.id.comp1_7).background = backgroundDrawable
     }
 
     fun setExampleDesign2Color(colorStr: ColorPalette){

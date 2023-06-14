@@ -61,9 +61,9 @@ class ChatDetailFragment : Fragment() {
 
         checkConnection?.observe(viewLifecycleOwner) {
             connectionStatus =  if (it) {
-                "Online"
+                resources.getString(R.string.online)
             } else {
-                "Offline"
+                resources.getString(R.string.offline)
             }
             (activity as? AppCompatActivity)?.supportActionBar?.subtitle = connectionStatus
         }
@@ -85,7 +85,7 @@ class ChatDetailFragment : Fragment() {
             isLoading ->
             (activity as? AppCompatActivity)?.supportActionBar?.subtitle = if (isLoading == true){
                 binding.btnSend.isEnabled = false
-                "Warna Pedia is typing..."
+                resources.getString(R.string.warna_pedia_is_typing)
             }else {
                 binding.btnSend.isEnabled = true
                 connectionStatus

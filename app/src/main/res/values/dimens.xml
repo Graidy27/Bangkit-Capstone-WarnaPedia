@@ -6,4 +6,6 @@
     <dimen name="example_design_height">200dp</dimen>
     <dimen name="example_design_nav">60dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="corner_radius_example_design">5dp</dimen>
+    <dimen name="stroke_example_design">1dp</dimen>
 </resources>

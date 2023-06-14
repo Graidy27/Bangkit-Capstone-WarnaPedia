@@ -23,10 +23,6 @@ class ChatFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    private val chatViewModel by activityViewModels<ChatDetailViewModel>{
-        ViewModelFactory.getInstance(requireActivity())
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

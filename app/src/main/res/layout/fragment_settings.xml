@@ -31,7 +31,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:id="@+id/setting_container"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -42,52 +42,59 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline"
-        android:paddingVertical="20dp">
+        app:cardElevation="4dp"
+        app:cardCornerRadius="16dp">
 
-        <TextView
-            android:id="@+id/tv_color_blind"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/color_blind"
-            android:textSize="20sp"
-            android:layout_marginLeft="30dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="20dp">
 
-        <Spinner
-            android:id="@+id/spinner_color_blind_value"
-            style="@style/SpinnerTextStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@string/setting_color_blind_spinner"
-            android:spinnerMode="dialog"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_color_blind"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_color_blind" />
+            <TextView
+                android:id="@+id/tv_color_blind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/color_blind"
+                android:textSize="20sp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_version"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/version"
-            android:layout_marginTop="20dp"
-            android:textSize="20sp"
-            android:layout_marginLeft="30dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_color_blind" />
+            <Spinner
+                android:id="@+id/spinner_color_blind_value"
+                style="@style/SpinnerTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/setting_color_blind_spinner"
+                android:spinnerMode="dialog"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_color_blind"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_color_blind" />
 
-        <TextView
-            android:id="@+id/tv_version_value"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="50dp"
-            android:text="@string/version_value"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_version"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/tv_version" />
+            <TextView
+                android:id="@+id/tv_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/version"
+                android:layout_marginTop="20dp"
+                android:textSize="20sp"
+                android:layout_marginLeft="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_color_blind" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tv_version_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="50dp"
+                android:text="@string/version_value"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_version"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tv_version" />
 
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

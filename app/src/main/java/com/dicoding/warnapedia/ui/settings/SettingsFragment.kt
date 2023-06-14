@@ -73,7 +73,7 @@ class SettingsFragment : Fragment() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val type = parent?.getItemAtPosition(position).toString()
                 if (first_spinner_counter < 1) {
-                    Log.d("LOG SPINNER2", "NOTHING")
+                    Log.d("LOG SPINNER2", "NOTHING, $isColorBlind")
                     parent?.setSelection(isColorBlind)
                     first_spinner_counter =+ 1
                 } else {
