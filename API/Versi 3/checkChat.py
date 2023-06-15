@@ -158,7 +158,7 @@ def colorBlind(string, blindType):
                 "message": "Success",
                 "chat": {
                     "type": 2,
-                    "message": "Berikut merupakan desain yang dapat kami berikan",
+                    "message": "Berikut merupakan desain yang dapat kami berikan. Semoga dapat membantu!",
                     "colorPalette": myList
                 }
             }
