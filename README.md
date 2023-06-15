@@ -1,9 +1,28 @@
 # Bangkit-Capstone-WarnaPedia
-
-
-# Steps to Deploy Warna Pedia API to GCP
-## Clone this Repository with branch Cloud-Computing
-### Windows
+This repositories is for Warna-Pedia's API deployment.
+## Steps to Deploy Warna Pedia API to GCP with Cloud Run
+### With Cloud Shell on GCP
+1. Open Cloud Shell
+2. Clone this Repository with branch Cloud-Computing <br>
 ```console
-git clone --Cloud-Computing [repository-url](https://github.com/Graidy27/Bangkit-Capstone-WarnaPedia.git)https://github.com/Graidy27/Bangkit-Capstone-WarnaPedia.git
+git clone --Cloud-Computing https://github.com/Graidy27/Bangkit-Capstone-WarnaPedia.git
 ```
+3. Open the path with the desired version. example we use Versi 3 <br>
+```console
+cd Bangkit-Capstone-WarnaPedia\API\'Versi 3'
+``` 
+4. First make sure that all files have been cloned
+5. create a container-images<br>
+```console
+docker built -t [your_name_container] .
+```
+```console
+docker run -it -p 7777:7777 [your_name_container]
+```
+```console
+docker tag [your_name_container] gcr.io/[id_project]/[your_name_container]
+```
+```console
+docker push gcr.io/[id_project]/warna-project:v1
+```
+6.  Open Cloud Run Service And Create New Service
