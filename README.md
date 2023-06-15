@@ -1,6 +1,6 @@
 # Bangkit-Capstone-WarnaPedia
 This repositories is for Warna-Pedia's API deployment.
-## Steps to Deploy Warna Pedia API to GCP with Cloud Run
+## Steps to Deploy Warna Pedia API to Cloud Run with GCP 
 ### With Cloud Shell on GCP
 1. Open Cloud Shell
 2. Clone this Repository with branch Cloud-Computing <br>
