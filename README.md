@@ -1,3 +1,5 @@
+![Logo Transparent white]([https://user-images.githubusercontent.com/52117843/209605854-136395db-1c3e-4331-95c9-3430063bd1fe.png](https://drive.google.com/file/d/1gi0bZ4L_EwxurqvuUsMFc7OU_hb83TIN/view?usp=drive_link))
+
 # Bangkit Capstone Project
 This is repository aplication of WarnaPedia mobile APP
 
