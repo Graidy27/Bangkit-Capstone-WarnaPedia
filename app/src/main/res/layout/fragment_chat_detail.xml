@@ -54,7 +54,7 @@
             android:background="@drawable/rounded_rectangle_5dp"
             android:backgroundTint="@color/white"
             android:gravity="center_vertical"
-            android:hint="Enter message"
+            android:hint="@string/enter_text"
             android:maxLines="6"
             android:minHeight="48dp" />
 

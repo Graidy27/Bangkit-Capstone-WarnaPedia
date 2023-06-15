@@ -9,10 +9,6 @@ import com.dicoding.warnapedia.data.ColorPalette
 import com.dicoding.warnapedia.repository.FavoriteColorPaletteRepository
 
 class FavoriteViewModel(application: FragmentActivity) : ViewModel() {
-    private val _page = MutableLiveData<String>().apply {
-        value = "This is favorite Fragment"
-    }
-    val page: LiveData<String> = _page
 
     private val _listColorPalette = MutableLiveData<List<ColorPalette>>()
     val listColorPalette: LiveData<List<ColorPalette>> = _listColorPalette

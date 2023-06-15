@@ -17,6 +17,7 @@
     <string name="error_response_no_connection">Tidak ada koneksi yang tersedia, harap periksa koneksi Anda dan coba lagi</string>
     <string name="error_response_server_down">Maaf, layanan kami sedang tidak tersedia, silakan coba lagi dalam beberapa menit</string>
     <string name="enter_text">Masukkan Teks</string>
+    <string name="favorite_empty">Anda dapat menambahkan palet warna dengan menekan lambang hati pada setiap kotak palet</string>
     <string name="dummy_name">John Doe</string>
     <string name="dummy_job">Pengembang Web Junior</string>
     <string name="dummy_age">Usia: 23 tahun</string>
@@ -51,6 +52,8 @@
     <string name="save_color_palette_recomendation_desc">Anda dapat menyimpan palet warna pilihan Anda untuk digunakan di kemudian hari</string>
     <string name="access_saved_color_palette">Akses Palet Warna Tersimpan</string>
     <string name="access_saved_color_palette_desc">Buka menu favorit untuk mengakses palet warna pilihan Anda</string>
+    <string name="access_detail_color_palette">Akses Detail Palet Warna</string>
+    <string name="access_detail_color_palette_desc">Tekan tahan pada salah satu palet warna atau menekan lambang mata untuk mengakses detail palet warna</string>
     <string name="color_blind_feature">Fitur Buta Warna</string>
     <string name="color_blind_feature_desc">Jika Anda memiliki buta warna, Anda dapat memilih warna yang tidak dapat Anda lihat</string>
     <string name="palette_recommendation">Rekomendasi Palet</string>

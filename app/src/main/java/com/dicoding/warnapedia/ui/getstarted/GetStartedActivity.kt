@@ -49,9 +49,17 @@ class GetStartedActivity : AppCompatActivity() {
 
         sliderList.add(
             SliderData(
+                resources.getString(R.string.access_detail_color_palette),
+                resources.getString(R.string.access_detail_color_palette_desc),
+                R.drawable.get_started_4
+            )
+        )
+
+        sliderList.add(
+            SliderData(
                 resources.getString(R.string.color_blind_feature),
                 resources.getString(R.string.color_blind_feature_desc),
-                R.drawable.get_started_4
+                R.drawable.get_started_5
             )
         )
 
@@ -83,6 +91,7 @@ class GetStartedActivity : AppCompatActivity() {
                     binding.idTVSlideTwo.setTextColor(resources.getColor(R.color.D8D8D8))
                     binding.idTVSlideThree.setTextColor(resources.getColor(R.color.D8D8D8))
                     binding.idTVSlideFour.setTextColor(resources.getColor(R.color.D8D8D8))
+                    binding.idTVSlideFive.setTextColor(resources.getColor(R.color.D8D8D8))
                     binding.bSkip.text = resources.getString(R.string.SKIP)
                 }
                 1 -> {
@@ -90,6 +99,7 @@ class GetStartedActivity : AppCompatActivity() {
                     binding.idTVSlideTwo.setTextColor(resources.getColor(R.color.black))
                     binding.idTVSlideThree.setTextColor(resources.getColor(R.color.D8D8D8))
                     binding.idTVSlideFour.setTextColor(resources.getColor(R.color.D8D8D8))
+                    binding.idTVSlideFive.setTextColor(resources.getColor(R.color.D8D8D8))
                     binding.bSkip.text = resources.getString(R.string.SKIP)
                 }
                 2 -> {
@@ -97,6 +107,7 @@ class GetStartedActivity : AppCompatActivity() {
                     binding.idTVSlideTwo.setTextColor(resources.getColor(R.color.D8D8D8))
                     binding.idTVSlideThree.setTextColor(resources.getColor(R.color.black))
                     binding.idTVSlideFour.setTextColor(resources.getColor(R.color.D8D8D8))
+                    binding.idTVSlideFive.setTextColor(resources.getColor(R.color.D8D8D8))
                     binding.bSkip.text = resources.getString(R.string.SKIP)
                 }
                 3 -> {
@@ -104,6 +115,15 @@ class GetStartedActivity : AppCompatActivity() {
                     binding.idTVSlideTwo.setTextColor(resources.getColor(R.color.D8D8D8))
                     binding.idTVSlideThree.setTextColor(resources.getColor(R.color.D8D8D8))
                     binding.idTVSlideFour.setTextColor(resources.getColor(R.color.black))
+                    binding.idTVSlideFive.setTextColor(resources.getColor(R.color.D8D8D8))
+                    binding.bSkip.text = resources.getString(R.string.SKIP)
+                }
+                4 -> {
+                    binding.idTVSlideOne.setTextColor(resources.getColor(R.color.D8D8D8))
+                    binding.idTVSlideTwo.setTextColor(resources.getColor(R.color.D8D8D8))
+                    binding.idTVSlideThree.setTextColor(resources.getColor(R.color.D8D8D8))
+                    binding.idTVSlideFour.setTextColor(resources.getColor(R.color.D8D8D8))
+                    binding.idTVSlideFive.setTextColor(resources.getColor(R.color.black))
                     binding.bSkip.text = resources.getString(R.string.GET_STARTED)
                 }
             }

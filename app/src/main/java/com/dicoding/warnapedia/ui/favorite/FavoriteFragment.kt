@@ -1,12 +1,13 @@
 package com.dicoding.warnapedia.ui.favorite
 
-import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -45,7 +46,6 @@ class FavoriteFragment : Fragment() {
         return binding.root
     }
 
-    @SuppressLint("Range")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -63,7 +63,12 @@ class FavoriteFragment : Fragment() {
             adapter.updateData(listColorPalette)
             adapter.notifyDataSetChanged()
             if (listColorPalette.isNotEmpty()){
+                binding.lExampleDesignContainer.visibility = VISIBLE
+                binding.clNoFavorite.visibility = GONE
                 favoriteViewModel.setCurrentColorPalette(listColorPalette[0])
+            }else {
+                binding.lExampleDesignContainer.visibility = GONE
+                binding.clNoFavorite.visibility = VISIBLE
             }
         }
         favoriteViewModel.loadFavoriteColorPalette(viewLifecycleOwner)
@@ -101,10 +106,6 @@ class FavoriteFragment : Fragment() {
                 2 -> { favoriteViewModel.setCurrentDesign(1) }
             }
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
     }
 
     override fun onDestroyView() {
