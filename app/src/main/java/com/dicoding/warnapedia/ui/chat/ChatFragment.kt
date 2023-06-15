@@ -8,12 +8,9 @@ import android.view.View.GONE
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.dicoding.warnapedia.R
 import com.dicoding.warnapedia.databinding.FragmentChatBinding
-import com.dicoding.warnapedia.helper.ViewModelFactory
-import com.dicoding.warnapedia.ui.chat.chatdetail.ChatDetailViewModel
 import com.dicoding.warnapedia.ui.getstarted.GetStartedActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

@@ -9,8 +9,8 @@ import android.text.TextWatcher
 import android.view.*
 import android.view.View.VISIBLE
 import android.widget.EditText
-import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.LinearLayoutCompat
@@ -119,22 +119,34 @@ class DetailFragment : Fragment() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 if (s?.length?:0 >= detailViewModel.characterMaxLength) {
                     editText.error = resources.getString(R.string.maximum_character, detailViewModel.characterMaxLength.toString())
+                }else if (s?.length == 0){
+                    editText.error = resources.getString(R.string.field_is_blank)
                 } else {
                     editText.error = null
                 }
             }
             override fun afterTextChanged(s: Editable?) {}
         })
+        val toastCantBeEmpty = Toast.makeText(requireContext(),  requireContext().resources.getString(R.string.error_color_palette_name_cannot_be_empty), Toast.LENGTH_LONG)
+        val toastSaveToDB = Toast.makeText(requireContext(),  requireContext().resources.getString(R.string.error_color_palette_must_saved_to_db), Toast.LENGTH_LONG)
         dialogBuilder = AlertDialog.Builder(requireActivity(), R.style.CustomAlertDialog)
             .setView(dialogView)
             .setMessage(resources.getString(R.string.edit_color_palette_name))
             .setPositiveButton(resources.getString(R.string.PROCEED)) { dialog, _ ->
+                if (editText.text.toString() == ""){
+                    dialog.dismiss()
+                    toastCantBeEmpty.show()
+                    editText.setText(colorPalette.name)
+                }
                 val enteredText = editText.text.toString()
                 detailViewModel.updateFavoriteColorPaletteName(enteredText, colorPalette.id).observe(viewLifecycleOwner) { isSuccess ->
                     if (isSuccess) {
                         colorPalette.name = enteredText
                         (activity as? AppCompatActivity)?.supportActionBar?.title = enteredText
                         editText.setText(enteredText)
+                    }else {
+                        toastSaveToDB.show()
+                        editText.setText(colorPalette.name)
                     }
                 }
                 dialog.dismiss()

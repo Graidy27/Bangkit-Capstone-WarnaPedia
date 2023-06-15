@@ -67,9 +67,12 @@
     <string name="share_layout_image">Bagikan Gambar Tata Letak</string>
     <string name="share_design_text">Lihat palet warna ini dari Warna Pedia!\n%s\n%s\n%s\n%s</string>
     <string name="maximum_character">Karakter maksimum adalah %s</string>
+    <string name="field_is_blank">Nama tidak boleh kosong</string>
     <string name="warna_pedia_is_typing">Warna Pedia mengetik...</string>
     <string name="copied_color">Warna %s</string>
     <string name="color_copied_to_clipboard">%s tersalin</string>
+    <string name="error_color_palette_name_cannot_be_empty">Nama palet warna tidak boleh kosong</string>
+    <string name="error_color_palette_must_saved_to_db">Simpan palet warna terlebih dahulu</string>
     <string name="online">Aktif</string>
     <string name="offline">Inaktif</string>
     <string name="layout_image">gambar.png</string>
