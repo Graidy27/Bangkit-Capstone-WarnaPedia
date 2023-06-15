@@ -1,4 +1,7 @@
 # Bangkit-Capstone-WarnaPedia
 
 
-# Stages Deploy Warna Pedia API
+# Steps to Deploy Warna Pedia API
+  - Clone this repositori with branch Cloud-Computing
+      git clone --branch Cloud-Computing https://github.com/Graidy27/Bangkit-Capstone-WarnaPedia.git
+  - 
