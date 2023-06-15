@@ -2,7 +2,7 @@
 
   
 </pre>
-[![Logo Transparent white](https://github.com/Graidy27/Bangkit-Capstone-WarnaPedia/blob/b5011899e312cef7a1a24872f6a4ac5173a0cdbf/warna-pedia.png)
+![Logo Transparent white](https://github.com/Graidy27/Bangkit-Capstone-WarnaPedia/blob/b5011899e312cef7a1a24872f6a4ac5173a0cdbf/warna-pedia.png)
 <pre>
 
   
