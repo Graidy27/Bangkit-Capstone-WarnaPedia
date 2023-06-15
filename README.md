@@ -1,4 +1,8 @@
-![Logo Transparent white](https://github.com/Graidy27/Bangkit-Capstone-WarnaPedia/blob/a51ea4a1eb277109a52419033b949d8b84aa523b/Screenshot%20b12.png)
+![Logo Transparent white](https://github.com/Graidy27/Bangkit-Capstone-WarnaPedia/blob/b5011899e312cef7a1a24872f6a4ac5173a0cdbf/warna-pedia.png)
+
+
+
+
 
 # Bangkit Capstone Project
 This is repository aplication of WarnaPedia mobile APP
