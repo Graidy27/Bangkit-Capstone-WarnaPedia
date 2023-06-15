@@ -23,6 +23,6 @@ docker run -it -p 7777:7777 [your_name_container]
 docker tag [your_name_container] gcr.io/[id_project]/[your_name_container]
 ```
 ```console
-docker push gcr.io/[id_project]/warna-project:v1
+docker push gcr.io/[id_project]/[your_name_container]
 ```
 6.  Open Cloud Run Service And Create New Service with port 7777
