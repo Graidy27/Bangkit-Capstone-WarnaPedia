@@ -5,7 +5,7 @@ This repositories is for Warna-Pedia's API deployment.
 1. Open Cloud Shell
 2. Clone this Repository with branch Cloud-Computing <br>
 ```console
-git clone --Cloud-Computing https://github.com/Graidy27/Bangkit-Capstone-WarnaPedia.git
+git clone --branch Cloud-Computing https://github.com/Graidy27/Bangkit-Capstone-WarnaPedia.git
 ```
 3. Open the path with the desired version. example we use Versi 3 <br>
 ```console
