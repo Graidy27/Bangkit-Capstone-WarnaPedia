@@ -30,6 +30,12 @@ class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
 
     private val mChatsRepository: ChatsRepository = ChatsRepository(application)
 
+    private var stringIndex = 0
+    init {
+        stringIndex = Random.nextInt(0, 5)
+        _isLoading.value = false
+    }
+
     fun addChat(str: String){
         val currentList = _listChat.value?.toMutableList() ?: mutableListOf()
         insertChat(formatedUserChat(str))
@@ -88,8 +94,8 @@ class ChatDetailViewModel(application: FragmentActivity) : ViewModel() {
 
     private fun addFirstChat(){
         val strArray = context.resources.getStringArray(R.array.default_first_chat)
-        val randomNumber = Random.nextInt(0, 5)
-        val chat = Chat(1, strArray[randomNumber], null)
+        val chat = Chat(1, strArray[stringIndex], null)
+        stringIndex = (stringIndex + 1) % 5
         mChatsRepository.insert(Chats(0, chat.type, chat.message, chat.colorPalette))
         _listChat.value = listOf(chat)
     }
