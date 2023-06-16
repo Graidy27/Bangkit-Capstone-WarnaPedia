@@ -39,8 +39,6 @@ class SplashScreenActivity : AppCompatActivity() {
         preference = SettingPreferences.getInstance(datastore)
         getPreferenceSetting()
 
-//        savePreferenceSetting(true)
-
         Handler(Looper.getMainLooper()).postDelayed({
             if (isFirstOpened) {
                 savePreferenceSetting(false)
