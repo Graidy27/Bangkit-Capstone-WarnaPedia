@@ -23,4 +23,7 @@ This is repository aplication of WarnaPedia mobile APP
 |    Sebastian Luth Hasibuan    | C067DSX1370 |    Cloud Computing    |
 |    Fadel Pramaputra Maulana   | A038DSX2721 |   Mobile Development  |
 
-
+# How to navigate
+- Check out `Cloud-Computing` branch to see how we deploy our services, how we implement the color theory, and how we make it possible for the Model and The mobile application to interact with each other.
+- Check out `Machine-Learning` branch to see the model we are using
+- CHeck out `Mobile-Development` branch to see the mobile application
