@@ -27,7 +27,7 @@ This is repository aplication of WarnaPedia mobile APP
 
 ## Installation
 
-To run the StoryU app locally, follow these steps:
+To run the Warna Pedia app locally, follow these steps:
 
 ```
 1. Clone this repository: git clone https://github.com/Graidy27/Bangkit-Capstone-WarnaPedia.git
