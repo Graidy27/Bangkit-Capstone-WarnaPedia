@@ -98,11 +98,11 @@ class RecommendationAdapter(
     private fun setSingleSelection(adapterPosition: Int){
         if(adapterPosition == RecyclerView.NO_POSITION) return
 
-        notifyItemChanged(selectedItemPosition)
+        notifyDataSetChanged()
 
         selectedItemPosition =  adapterPosition
 
-        notifyItemChanged(selectedItemPosition)
+        notifyDataSetChanged()
     }
 
     private fun toDetailFragment(viewHolder: ViewHolder,
@@ -123,7 +123,7 @@ class RecommendationAdapter(
         viewHolder.itemView.findNavController().navigate(toDetailFragment)
     }
 
-    val Int.dp: Int
+    private val Int.dp: Int
         get() = (this * Resources.getSystem().displayMetrics.density).roundToInt()
 
     fun updateData(newData: List<ColorPalette>) {

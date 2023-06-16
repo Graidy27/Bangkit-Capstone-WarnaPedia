@@ -99,14 +99,14 @@ class FavoriteAdapter(
     private fun setSingleSelection(adapterPosition: Int){
         if(adapterPosition == RecyclerView.NO_POSITION) return
 
-        notifyItemChanged(selectedItemPosition)
+        notifyDataSetChanged()
 
         selectedItemPosition =  adapterPosition
 
-        notifyItemChanged(selectedItemPosition)
+        notifyDataSetChanged()
     }
 
-    val Int.dp: Int
+    private val Int.dp: Int
         get() = (this * Resources.getSystem().displayMetrics.density).roundToInt()
 
     fun updateData(newData: List<ColorPalette>) {
