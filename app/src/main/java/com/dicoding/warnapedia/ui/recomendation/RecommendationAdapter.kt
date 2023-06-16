@@ -55,6 +55,7 @@ class RecommendationAdapter(
         }else{
             viewHolder.binding.llSelectedColorPalette.visibility = View.GONE
         }
+
         viewHolder.binding.mbFavoriteButton.clearOnCheckedChangeListeners()
         viewHolder.binding.mbFavoriteButton.addOnCheckedChangeListener { button, isChecked ->
             if (isChecked){
