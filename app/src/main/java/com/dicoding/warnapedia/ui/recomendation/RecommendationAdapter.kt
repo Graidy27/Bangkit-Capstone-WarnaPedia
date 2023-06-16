@@ -55,6 +55,7 @@ class RecommendationAdapter(
         }else{
             viewHolder.binding.llSelectedColorPalette.visibility = View.GONE
         }
+        viewHolder.binding.mbFavoriteButton.clearOnCheckedChangeListeners()
         viewHolder.binding.mbFavoriteButton.addOnCheckedChangeListener { button, isChecked ->
             if (isChecked){
                 button.icon = ContextCompat.getDrawable(context, R.drawable.baseline_favorite_24)
@@ -62,6 +63,7 @@ class RecommendationAdapter(
                 button.isEnabled = false
             }
         }
+        viewHolder.itemView.setOnClickListener(null)
         viewHolder.itemView.setOnClickListener {
             if (selectedItemPosition != viewHolder.adapterPosition){
                 onItemClickCallback.onItemClick(listColorPalette[viewHolder.adapterPosition])
@@ -73,10 +75,13 @@ class RecommendationAdapter(
                 toDetailFragment(viewHolder, id, color_palette_name, color_one, color_two, color_three, color_four)
             }
         })
+        viewHolder.itemView.setOnTouchListener(null)
         viewHolder.itemView.setOnTouchListener { _, event ->
             gestureDetector.onTouchEvent(event)
             false
         }
+
+        viewHolder.binding.mbViewDetailButton.setOnTouchListener(null)
         viewHolder.binding.mbViewDetailButton.setOnClickListener {
             toDetailFragment(viewHolder, id, color_palette_name, color_one, color_two, color_three, color_four)
         }
